@@ -21,4 +21,4 @@ I am capable to write python and i wish to peer review projects made with it. I 
 
 [Paper](https://arxiv.org/abs/1810.03218) including analysis of the time cmplx of NN
 
-[Deep Learning](https://www.deeplearningbook.org/) book with really nice details
+[Deep Learning](https://www.deeplearningbook.org/) An MIT Press book
