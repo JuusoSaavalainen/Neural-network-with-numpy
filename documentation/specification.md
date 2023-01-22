@@ -1,7 +1,7 @@
 
 # Specification document
 
-This project will aim to implement a simple neural network with [mnist](http://yann.lecun.com/exdb/mnist/) database. The project will possibly have GUI if the time is right and at least command line UI. The trained model will classify the handwritten digits from 0-9 and the model will be able to handle similarly formed data. The implementation will not use any third-party libraries like Tensorflow or Pytorch. Matrix operations will be handled with the NumPy library and the project will be fully written with Python 3.
+This project will aim to implement a simple neural network with [MNIST](http://yann.lecun.com/exdb/mnist/) database. The project will possibly have GUI if the time is right and at least command line UI. The trained model will classify the handwritten digits from 0-9 and the model will be able to handle similarly formed data. The implementation will not use any third-party libraries like Tensorflow or Pytorch. Matrix operations will be handled with the NumPy library and the project will be fully written with Python 3.
 > NOTE: This approach was chosen because classification with mnist is a really simple problem in the space of machine learning problems. Sometimes even called the "Hello World" of ML. Also, my way of doing it makes me dig into algorithms, logic, and the math behind the chosen approach. Those same things underlying many today widely used libraries
 # Algorithms and time complexity
 ## Model
