@@ -20,3 +20,5 @@ I am capable to write python and i wish to peer review projects made with it. I 
 [Backpropagation](https://en.wikipedia.org/wiki/Backpropagation) 
 
 [Paper](https://arxiv.org/abs/1810.03218) including analysis of the time cmplx of NN
+
+[Deep Learning](https://www.deeplearningbook.org/) book with really nice details
