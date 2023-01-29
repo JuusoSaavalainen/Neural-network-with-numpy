@@ -14,6 +14,8 @@ So the biggest focus in the implementation is the backpropagation algorithm whic
 I am capable to write python and i wish to peer review projects made with it. I study in the computer science bachelor's program and i will be doing documentation using the markdown language during this course in English. ENG will be the chosen language for anything related to this project.
 
 ## Sources / links
+[MNIST](http://yann.lecun.com/exdb/mnist/index.html) Original MNIST data used in this project
+
 [DeepAi](https://deepai.org/machine-learning-glossary-and-terms/feed-forward-neural-network)
 
 [3blue1brown](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) very good video series to understand the fundamentals of this topic and the maths laying behind the whole process
