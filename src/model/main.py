@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 
 #load the data as so
 #csv -> df -> numpy.array -> shuffle -> transpose
-data = pd.read_csv('/home/saavajuu/tiraLAB/data/mnist_train.csv', header=None)
+data = pd.read_csv('/home/saavajuu/tiraLAB/data/mnist_train.csv', header=None) #pathing may change
 data = np.array(data)
 np.random.shuffle(data)
 data = data.T
