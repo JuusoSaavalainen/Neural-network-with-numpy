@@ -93,7 +93,7 @@ def main():
     # if you want to see pics and labels during test forwarding
     visualize = False
 
-    print(f'epoch goal; {Epocs}')
+    print(f'< Epoch goal: {Epocs} >')
     # Everything should be ready for training
     params = utils.gradient_descent(X_training, Y_training, NN_layer_format, Epocs,
                            learningrate, actication_func[0], X_test, Y_test)
