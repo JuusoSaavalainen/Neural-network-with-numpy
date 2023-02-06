@@ -91,7 +91,7 @@ def main():
     actication_func = ['relU', 'sigmoid']
 
     # if you want to see pics and labels during test forwarding
-    visualize = False
+    visualize = True
 
     print(f'< Epoch goal: {Epocs} >')
     # Everything should be ready for training

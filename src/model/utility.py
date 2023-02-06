@@ -321,13 +321,6 @@ def gradient_descent(X, Y, layers_dims, max_iter, alpha, actifunc, X_test, Y_tes
             accuracies), "Loss:", np.mean(losses))
         # reset the lists for accuracy and loss after each epoch
         accuracies, losses = [], []
-        progress = (iteration) / max_iter +1
-        bar_length = int(progress * 50)
-        bar = "=" * bar_length
-        percent = int(progress * 100)
-        print(f"[{bar:<50}] {percent}%", end='\r')
-        time.sleep(0.1)
-    print("[==================================================] 100%")
     return params
 
 def test_model(x,y,params,visualize):
