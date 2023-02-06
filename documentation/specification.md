@@ -26,6 +26,8 @@ I am capable to write python and i wish to peer review projects made with it. I 
 
 [Backpropagation](https://ai.stackexchange.com/questions/36520/simple-dimension-unmatch-problem-of-a-simple-neural-network) in simple architech
 
+[Backpropagation](https://towardsdatascience.com/understanding-backpropagation-algorithm-7bb3aa2f95fd) and other relevant functions
+
 [Converting](https://pjreddie.com/projects/mnist-in-csv/) 
 
 [Paper](https://arxiv.org/abs/1810.03218) including analysis of the time cmplx of NN
