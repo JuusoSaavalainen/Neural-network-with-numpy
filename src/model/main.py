@@ -24,8 +24,15 @@ def main():
     data = pd.read_csv(
         '/home/saavajuu/tiraLAB/src/data/mnist_train.csv', header=None)
 
+    #real testing data is here
+    non_train_test = pd.read_csv(
+        '/home/saavajuu/tiraLAB/src/data/mnist_test.csv', header=None)
+
+
     # randomize the pickd data
     data = utils.randomize_rows(data)
+    t_data = utils.randomize_rows(non_train_test)
+
 
     # divide to validation set and transpose it, now one column represents one picture.
     # validation set is not used for training thus its here if neeeded to evaluate results.
@@ -35,6 +42,7 @@ def main():
     trainval_data = data[training_size:, :]
 
     # define the labels and trainset , get RGB values to 0-1 interval.
+    ##################################################################
     # training set
     X_training = [x[1:] for x in training_data]  # vals
     X_training = np.array(X_training)
@@ -53,9 +61,19 @@ def main():
     X_validating = [np.reshape(i, (784, 1)) for i in X_validating]
     X_validating = np.array(X_validating)
 
+    #testing data
+    X_test = [x[1:] for x in t_data]  # vals
+    X_test = np.array(X_test)
+    Y_test = t_data[:, 0]  # labels
+
+    # Reshape the array to 2-dimensional
+    X_test = [np.reshape(i, (784, 1)) for i in X_test]
+    X_test = np.array(X_test)
+
     # Change RGB Intreval to 0-1 from 0-255 for both sets
     X_training = utils.normalize_zero_one(X_training)
     X_validating = utils.normalize_zero_one(X_validating)
+    X_test = utils.normalize_zero_one(X_test)
 
     # Set the wanted layers and other setable hyperparams
     #                                           ___________HIDDEN LAYERS I-III_____________
@@ -67,15 +85,20 @@ def main():
 
     NN_layer_format = [784, 256, 128, 64, 10]
     learningrate = 0.1
-    Epocs = 10
+    Epocs = 15
 
     # relU or sigmoid
-
     actication_func = ['relU', 'sigmoid']
 
+    # if you want to see pics and labels during test forwarding
+    visualize = False
+
+    print(f'epoch goal; {Epocs}')
     # Everything should be ready for training
-    utils.gradient_descent(X_training, Y_training, NN_layer_format, Epocs,
-                           learningrate, actication_func[0], X_validating, Y_validating)
+    params = utils.gradient_descent(X_training, Y_training, NN_layer_format, Epocs,
+                           learningrate, actication_func[0], X_test, Y_test)
+    
+    utils.test_model(X_test, Y_test, params, visualize)
 
 
 if __name__ == '__main__':

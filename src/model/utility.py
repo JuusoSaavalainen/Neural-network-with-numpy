@@ -4,7 +4,7 @@ import numpy as np
 # seaborn and matplotlib are purely for plotting to visualize results
 import matplotlib.pyplot as plt
 import seaborn as sns
-
+import time 
 #######################################################################
 # _______________DATA HANDLERS / FORMATTER / ENCODERS__________________#
 
@@ -321,21 +321,36 @@ def gradient_descent(X, Y, layers_dims, max_iter, alpha, actifunc, X_test, Y_tes
             accuracies), "Loss:", np.mean(losses))
         # reset the lists for accuracy and loss after each epoch
         accuracies, losses = [], []
+        progress = (iteration + 1) / max_iter +1
+        bar_length = int(progress * 50)
+        bar = "=" * bar_length
+        percent = int(progress * 100)
+        print(f"[{bar:<50}] {percent}%", end='\r')
+        time.sleep(0.1)
+    print("[==================================================] 100%")
+    return params
 
+def test_model(x,y,params,visualize):
     # after training test with test data
-    for x, y in zip(X_test, Y_test):
-        activations = forwardprop(x, params, actifunc)
-        predictions = activations[f'A{L}']
+    i = 0
+    test_acc = 0
+    rounds = 0
+    for x, y in zip(x, y):
+        activations = forwardprop(x, params)
+        predictions = activations[f'A4']
 
-        # Plot the input image
-        plt.imshow(x.reshape(28, 28), cmap='gray')
-        plt.title(f'Prediction: {np.argmax(predictions)}, Real label: {y}')
+        if visualize == True:
+            # Plot the input image
+            plt.imshow(x.reshape(28, 28), cmap='gray')
+            plt.title(f'Prediction: {np.argmax(predictions)}, Real label: {y}')
 
-        plt.show()
-        # Display the whole vector of predictions
-        print(f'Prediction vector: {predictions}')
+            plt.show()
+            # Display the whole vector of predictions
+            print(f'Prediction vector: {predictions}')
 
-        i += 1
-        if i > 20:
-            return
+        if np.argmax(predictions) == y:
+            test_acc += 1
+        rounds +=1
+    print(test_acc/rounds)
+
     return params
