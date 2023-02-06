@@ -24,6 +24,10 @@ I am capable to write python and i wish to peer review projects made with it. I 
 
 [Backpropagation better than wikipedia](https://www.adeveloperdiary.com/data-science/machine-learning/understand-and-implement-the-backpropagation-algorithm-from-scratch-in-python/)
 
+[Backpropagation](https://ai.stackexchange.com/questions/36520/simple-dimension-unmatch-problem-of-a-simple-neural-network) in simple architech
+
+[Converting](https://pjreddie.com/projects/mnist-in-csv/) 
+
 [Paper](https://arxiv.org/abs/1810.03218) including analysis of the time cmplx of NN
 
 [Deep Learning](https://www.deeplearningbook.org/) An MIT Press book
