@@ -1,5 +1,7 @@
 def convert_to_csv(image, label, out, n):
-
+    '''
+    Source : https://pjreddie.com/projects/mnist-in-csv/
+    '''
     img = open(image, "rb")
     lab = open(label, "rb")
     output = open(out, "w")
@@ -29,3 +31,4 @@ def convert_to_csv(image, label, out, n):
 
 # convert_to_csv("/home/saavajuu/tiraLAB/src/data/t10k-images.idx3-ubyte", "/home/saavajuu/tiraLAB/src/data/t10k-labels.idx1-ubyte",
 #        "/home/saavajuu/tiraLAB/src/data/mnist_test.csv", 10000)
+
