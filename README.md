@@ -5,6 +5,11 @@
 
 Neural network implementation with MNIST db from scratch using NumPy
 
+![](https://github.com/JuusoSaavalainen/Neural-network-with-numpy/blob/main/documentation/nnsimumnist.gif)
+
+Gif demonstrating forward prop in the model with 2 hidden layers
+[[source]](https://medium.com/analytics-vidhya/applying-ann-digit-and-fashion-mnist-13accfc44660)
+
 ## Docs
 * [Specification document](https://github.com/JuusoSaavalainen/TiraLAB/blob/main/documentation/specification.md)
 * [Test document](https://github.com/JuusoSaavalainen/TiraLAB-Neural-network-with-numpy/blob/main/documentation/testdocumentation.md)
