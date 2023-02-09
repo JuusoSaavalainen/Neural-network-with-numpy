@@ -47,7 +47,7 @@ def start_gui():
         display_number(act_pred)
 
     def load_dict():
-        with open('model.pickle', 'rb') as f:
+        with open('src/model/model.pickle', 'rb') as f:
             params = pickle.load(f)
         return params
 
