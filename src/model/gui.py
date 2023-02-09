@@ -69,7 +69,7 @@ def start_gui():
         canvas.create_oval(x-10, y-10, x+10, y+10, fill="black", outline="black")
 
     def display_message():
-        tkinter.messagebox.showinfo("About this UI", "Please draw slowly to get better results, since the implementation of drawing is not perfect moving the mouse too fast while drawing will lead to bad results. Also please try to avoid drawing in the corners and walls of the canvas. Drawing too small digits will also impact negatively since the canvas will be smoothened out when runned on the model")
+        tkinter.messagebox.showinfo("About this UI", "Please draw slowly to get better results, and try to write in the center. Since the implementation of drawing is not perfect moving the mouse too fast while drawing will lead to bad results. Also please try to avoid drawing in the corners and walls of the canvas. Drawing too small digits will also impact negatively since the canvas will be smoothened out when runned on the model")
 
     root = tk.Tk()
     root.title("Digit regocniti")
