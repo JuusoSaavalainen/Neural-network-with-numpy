@@ -18,7 +18,7 @@ You need to have Python installed with Poetry to be able to run this application
 # Install dependencies
 $ poetry install
 
-# Run the GUI to test the pretrainde model
+# Run the GUI to test the pretrained model
 $ poetry run invoke startgui
 ```
 
