@@ -20,8 +20,6 @@ $ poetry install
 
 # Run the GUI to test the pretrainde model
 $ poetry run invoke startgui
-
-
 ```
 
 ## Docs
