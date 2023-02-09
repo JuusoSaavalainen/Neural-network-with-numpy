@@ -10,6 +10,18 @@ Neural network implementation with MNIST db from scratch using NumPy
 Gif demonstrating forward prop in the model with 2 hidden layers
 [[source]](https://medium.com/analytics-vidhya/applying-ann-digit-and-fashion-mnist-13accfc44660)
 
+You need to have Python installed with Poetry to be able to run this application. Clone the repository to your desired path.
+
+```bash
+# Install dependencies
+$ poetry install
+
+# Run the GUI to test the pretrainde model
+$ poetry run invoke startgui
+
+
+```
+
 ## Docs
 * [Specification document](https://github.com/JuusoSaavalainen/TiraLAB/blob/main/documentation/specification.md)
 * [Test document](https://github.com/JuusoSaavalainen/TiraLAB-Neural-network-with-numpy/blob/main/documentation/testdocumentation.md)
