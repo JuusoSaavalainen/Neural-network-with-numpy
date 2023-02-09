@@ -10,6 +10,8 @@ Neural network implementation with MNIST db from scratch using NumPy
 Gif demonstrating forward prop in the model with 2 hidden layers
 [[source]](https://medium.com/analytics-vidhya/applying-ann-digit-and-fashion-mnist-13accfc44660)
 
+## Installing
+
 You need to have Python installed with Poetry to be able to run this application. Clone the repository to your desired path.
 
 ```bash
