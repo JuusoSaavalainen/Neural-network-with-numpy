@@ -273,7 +273,8 @@ def compute_loss(predictions, targets):
 def gradient_descent(X, Y, layers_dims, max_iter, alpha, actifunc, X_test, Y_test):
     """
     Optimizes the neural network parameters using gradient descent optimization algorithm.
-    This is the training loop of the nn. 
+    This is the training loop of the nn , this is not the smartest way since it optimizez after every sample.
+    this could be changet later to stocastic or batch type implemention of training. 
 
     Parameters:
     X - input data
@@ -328,11 +329,14 @@ def test_model(x,y,params,visualize):
     i = 0
     test_acc = 0
     rounds = 0
+    fail_pics = []
+    correct_pics = []
+
     for x, y in zip(x, y):
         activations = forwardprop(x, params)
-        predictions = activations[f'A4']
+        predictions = activations[f'A4'] #stupid hardcore debugging
 
-        if visualize == True:
+        if visualize == True and i < 50:
             # Plot the input image
             plt.imshow(x.reshape(28, 28), cmap='gray')
             plt.title(f'Prediction: {np.argmax(predictions)}, Real label: {y}')
@@ -343,7 +347,8 @@ def test_model(x,y,params,visualize):
 
         if np.argmax(predictions) == y:
             test_acc += 1
+            correct_pics.append(x)
         rounds +=1
+        i +=1
     print(test_acc/rounds)
 
-    return params

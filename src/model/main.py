@@ -2,7 +2,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import utility as utils
-
+import gui as gui
+import pickle
 
 #############
 #  TiraLab  #
@@ -83,22 +84,34 @@ def main():
 
     # these seems to get good outputs more tuning will be doned
 
+    # with alpha = 0.5 , it seems like going above 25 epoch does not change much and above 90 can be found around 10 epoch , 25 epoch yielded 0.02 better.
+    #alpha 0.5 :: 15epoch = 0.9191 , 20epoch = 0.9223, 25epoch = 0.926 , 50epoch = 0.9384, 75epoch = 0.9476//0.9517 #W TEST DATA
+    # it takes about 5080 sek to train 75 epoch
+ 
     NN_layer_format = [784, 256, 128, 64, 10]
-    learningrate = 0.1
-    Epocs = 15
+    learningrate = 0.5
+    Epocs = 200
 
     # relU or sigmoid
     actication_func = ['relU', 'sigmoid']
 
     # if you want to see pics and labels during test forwarding
-    visualize = True
+    visualize = False
 
-    print(f'< Epoch goal: {Epocs} >')
+    print(f'< Epoch goal: {Epocs}, alpha: {learningrate} >')
     # Everything should be ready for training
     params = utils.gradient_descent(X_training, Y_training, NN_layer_format, Epocs,
                            learningrate, actication_func[0], X_test, Y_test)
     
+    # load csv module
+
+    #    gui.start_gui(params)
+
     utils.test_model(X_test, Y_test, params, visualize)
+
+
+    with open('w_b_dict_trained150e.pickle', 'wb') as f:
+        pickle.dump(params, f)
 
 
 if __name__ == '__main__':

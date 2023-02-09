@@ -139,6 +139,14 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
+name = "invoke"
+version = "2.0.0"
+description = "Pythonic task execution"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
 name = "isort"
 version = "5.12.0"
 description = "A Python utility / library to sort Python imports."
@@ -203,6 +211,24 @@ description = "Fundamental package for array computing in Python"
 category = "main"
 optional = false
 python-versions = ">=3.8"
+
+[[package]]
+name = "opencv-python"
+version = "4.7.0.68"
+description = "Wrapper package for OpenCV python bindings."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+numpy = [
+    {version = ">=1.21.0", markers = "python_version <= \"3.9\" and platform_system == \"Darwin\" and platform_machine == \"arm64\""},
+    {version = ">=1.21.2", markers = "python_version >= \"3.10\""},
+    {version = ">=1.21.4", markers = "python_version >= \"3.10\" and platform_system == \"Darwin\""},
+    {version = ">=1.19.3", markers = "python_version >= \"3.6\" and platform_system == \"Linux\" and platform_machine == \"aarch64\" or python_version >= \"3.9\""},
+    {version = ">=1.17.0", markers = "python_version >= \"3.7\""},
+    {version = ">=1.17.3", markers = "python_version >= \"3.8\""},
+]
 
 [[package]]
 name = "packaging"
@@ -426,6 +452,17 @@ optional = false
 python-versions = ">=3.6"
 
 [[package]]
+name = "ttkthemes"
+version = "3.2.2"
+description = "A group of themes for the ttk extensions of Tkinter with a Tkinter.Tk wrapper"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[package.dependencies]
+pillow = "*"
+
+[[package]]
 name = "typing-extensions"
 version = "4.4.0"
 description = "Backported and Experimental Type Hints for Python 3.7+"
@@ -444,7 +481,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "3b5dd26903d9972bb563649f7362c695a78a8ed289356837ce39895ef5188b04"
+content-hash = "825947262cbec7cf0be2b3b5fc92a8059345c5cb3ad99acb4c32a6d0d0a6bfa7"
 
 [metadata.files]
 astroid = [
@@ -592,6 +629,10 @@ fonttools = [
 iniconfig = [
     {file = "iniconfig-2.0.0-py3-none-any.whl", hash = "sha256:b6a85871a79d2e3b22d2d1b94ac2824226a63c6b741c88f7ae975f18b6778374"},
     {file = "iniconfig-2.0.0.tar.gz", hash = "sha256:2d91e135bf72d31a410b17c16da610a82cb55f6b0477d1a902134b24a455b8b3"},
+]
+invoke = [
+    {file = "invoke-2.0.0-py3-none-any.whl", hash = "sha256:a860582bcf7a4b336fe18ef53937f0f28cec1c0053ffa767c2fcf7ba0b850f59"},
+    {file = "invoke-2.0.0.tar.gz", hash = "sha256:7ab5dd9cd76b787d560a78b1a9810d252367ab595985c50612702be21d671dd7"},
 ]
 isort = [
     {file = "isort-5.12.0-py3-none-any.whl", hash = "sha256:f84c2818376e66cf843d497486ea8fed8700b340f308f076c6fb1229dff318b6"},
@@ -782,6 +823,15 @@ numpy = [
     {file = "numpy-1.24.1-pp38-pypy38_pp73-win_amd64.whl", hash = "sha256:cfa1161c6ac8f92dea03d625c2d0c05e084668f4a06568b77a25a89111621566"},
     {file = "numpy-1.24.1.tar.gz", hash = "sha256:2386da9a471cc00a1f47845e27d916d5ec5346ae9696e01a8a34760858fe9dd2"},
 ]
+opencv-python = [
+    {file = "opencv-python-4.7.0.68.tar.gz", hash = "sha256:9829e6efedde1d1b8419c5bd4d62d289ecbf44ae35b843c6da9e3cbcba1a9a8a"},
+    {file = "opencv_python-4.7.0.68-cp37-abi3-macosx_10_13_x86_64.whl", hash = "sha256:abc6adfa8694f71a4caffa922b279bd9d96954a37eee40b147f613c64310b411"},
+    {file = "opencv_python-4.7.0.68-cp37-abi3-macosx_11_0_arm64.whl", hash = "sha256:86f4b60b9536948f16d2170ba3a9b22d3955a957dc61a9bc56e53692c6db2c7e"},
+    {file = "opencv_python-4.7.0.68-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:6d1c993811f92ddd7919314ada7b9be1f23db1c73f1384915c834dee8549c0b9"},
+    {file = "opencv_python-4.7.0.68-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:3a00e12546e5578f6bb7ed408c37fcfea533d74e9691cfaf40926f6b43295577"},
+    {file = "opencv_python-4.7.0.68-cp37-abi3-win32.whl", hash = "sha256:e770e9f653a0e5e72b973adb8213fae2df4642730ba1faf31e73a54287a4d5d4"},
+    {file = "opencv_python-4.7.0.68-cp37-abi3-win_amd64.whl", hash = "sha256:7a08f9d1f9dd52de63a7bb448ab7d6d4a1a85b767c2358501d968d1e4d95098d"},
+]
 packaging = [
     {file = "packaging-23.0-py3-none-any.whl", hash = "sha256:714ac14496c3e68c99c29b00845f7a2b85f3bb6f1078fd9f72fd20f0570002b2"},
     {file = "packaging-23.0.tar.gz", hash = "sha256:b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"},
@@ -949,6 +999,9 @@ tomli = [
 tomlkit = [
     {file = "tomlkit-0.11.6-py3-none-any.whl", hash = "sha256:07de26b0d8cfc18f871aec595fda24d95b08fef89d147caa861939f37230bf4b"},
     {file = "tomlkit-0.11.6.tar.gz", hash = "sha256:71b952e5721688937fb02cf9d354dbcf0785066149d2855e44531ebdd2b65d73"},
+]
+ttkthemes = [
+    {file = "ttkthemes-3.2.2.tar.gz", hash = "sha256:01daed001f2ff0e4f32832a0d9ea48176c0c505203b030756bdde3bd1bcb21d2"},
 ]
 typing-extensions = [
     {file = "typing_extensions-4.4.0-py3-none-any.whl", hash = "sha256:16fa4864408f655d35ec496218b85f79b3437c829e93320c7c9215ccfd92489e"},
