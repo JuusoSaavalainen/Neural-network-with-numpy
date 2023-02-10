@@ -76,42 +76,63 @@ def main():
     X_validating = utils.normalize_zero_one(X_validating)
     X_test = utils.normalize_zero_one(X_test)
 
-    # Set the wanted layers and other setable hyperparams
-    #                                           ___________HIDDEN LAYERS I-III_____________
-    #                                           | L1(in)  L2     L3       L4      L5(out) |
-    # Right now im experiementing with this:     |  784  | 256 | 256/2 | 256/2/2 |    10   | ;model with 3 hidden layers.
-    #                                           |_________________________________________|
+    #########################################################################################################################################################
+    #                                                                                                                                                       #
+    # Set the wanted layers and other setable hyperparams                                                                                                   #
+    #                                           ___________HIDDEN LAYERS I-III_____________                                                                 #
+    #                                           | L1(in)  L2     L3       L4      L5(out) |                                                                 #
+    # Right now im experiementing with this:    |  784  | 256 | 256/2 | 256/2/2 |    10   | ;model with 3 hidden layers.                                   #
+    #                                           |_________________________________________|                                                                 #
+    #                                                                                                                                                       #
+    # these seems to get good outputs more tuning will be doned                                                                                             #
+    #                                                                                                                                                       #
+    # with alpha = 0.5 , it seems like going above 25 epoch does not change much and above 90 can be found around 10 epoch , 25 epoch yielded 0.02 better.  #
+    # alpha 0.5 :: 15epoch = 0.9191 , 20epoch = 0.9223, 25epoch = 0.926 , 50epoch = 0.9384, 75epoch = 0.9476// 200 = 0.9517 #W TEST DATA                    #
+    # it takes about 5080 sek to train 75 epoch                                                                                                             #
+    #                                                                                                                                                       #
+    #                                                                                                                                                       #
+    #########################################################################################################################################################
 
-    # these seems to get good outputs more tuning will be doned
+    # __HERE_YOU_CAN_SET_THE_FORMAT_OF_LAYERS_AND_OTHER_HYPERPARAMS!!!!__
+    # setable: nn format , learningrate , epocs , actifunct, visualize
 
-    # with alpha = 0.5 , it seems like going above 25 epoch does not change much and above 90 can be found around 10 epoch , 25 epoch yielded 0.02 better.
-    #alpha 0.5 :: 15epoch = 0.9191 , 20epoch = 0.9223, 25epoch = 0.926 , 50epoch = 0.9384, 75epoch = 0.9476//0.9517 #W TEST DATA
-    # it takes about 5080 sek to train 75 epoch
- 
+    # this is format of the network firs and last layer needs to be 784 and 10, but the amount of nodes
+    # and the amount of those hidden layers between in and output can be anything, set it how you like
+
     NN_layer_format = [784, 256, 128, 64, 10]
-    learningrate = 0.5
-    Epocs = 200
 
-    # relU or sigmoid
+    # learning rate sometimes referred as alpha is the desired scalar to move in the gradient descent optimizing
+
+    learningrate = 0.5
+
+    # one epcoch means training once with the whole training data
+
+    Epocs = 10
+
+    #choose relU or sigmoid
+
     actication_func = ['relU', 'sigmoid']
 
-    # if you want to see pics and labels during test forwarding
+    # if you want to see pics and labels during test forwarding set this True
+
     visualize = False
 
-    print(f'< Epoch goal: {Epocs}, alpha: {learningrate} >')
+
     # Everything should be ready for training
+
+    print(f'< Epoch goal: {Epocs}, alpha: {learningrate} >')
     params = utils.gradient_descent(X_training, Y_training, NN_layer_format, Epocs,
                            learningrate, actication_func[0], X_test, Y_test)
-    
-    # load csv module
 
-    #    gui.start_gui(params)
+    # This will run the test data trought the model and calculate error with unseen data agter training
 
     utils.test_model(X_test, Y_test, params, visualize)
 
 
-    with open('w_b_dict_trained150e.pickle', 'wb') as f:
-        pickle.dump(params, f)
+    # this will be used to capture the calculated weights if we want to save the model
+
+    #with open('w_b_dict_trained150e.pickle', 'wb') as f:
+    #    pickle.dump(params, f)
 
 
 if __name__ == '__main__':
