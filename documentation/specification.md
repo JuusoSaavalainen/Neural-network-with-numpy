@@ -22,7 +22,7 @@ I am capable to write python and i wish to peer review projects made with it. I 
 
 [3blue1brown](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) very good video series to understand the fundamentals of this topic and the maths laying behind the whole process
 
-[Backpropagation](https://en.wikipedia.org/wiki/Backpropagation) wikipedia
+[Neural Networks:Tricks of the Trade](https://link.springer.com/chapter/10.1007/978-3-642-35289-8_25)
 
 [Backpropagation](https://www.adeveloperdiary.com/data-science/machine-learning/understand-and-implement-the-backpropagation-algorithm-from-scratch-in-python/) better than wikipedia
 
