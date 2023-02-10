@@ -26,6 +26,10 @@ $ poetry install
 
 # Run the GUI to test the pretrained model
 $ poetry run invoke startgui
+
+# Run the taining with your own model structure
+# First set the wanted hyperparameters to main.py
+$ poetry run invoke train
 ```
 
 ## Docs
