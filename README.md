@@ -33,7 +33,7 @@ $ poetry run invoke startgui
 
 # Run the taining with your own model structure
 # First set the wanted hyperparameters to main.py
-$ poetry run invoke train
+# todo
 ```
 
 ## Docs
