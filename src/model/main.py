@@ -81,14 +81,14 @@ def main():
     # Set the wanted layers and other setable hyperparams                                                                                                   #
     #                                           ___________HIDDEN LAYERS I-III_____________                                                                 #
     #                                           | L1(in)  L2     L3       L4      L5(out) |                                                                 #
-    # Right now im experiementing with this:    |  784  | 256 | 256/2 | 256/2/2 |    10   | ;model with 3 hidden layers.                                   #
+    # Right now im experiementing with this:    |  784  | 256 | 256/2 | 256/2/2 |    10   | ;model with 3 hidden layers.                                    #
     #                                           |_________________________________________|                                                                 #
     #                                                                                                                                                       #
     # these seems to get good outputs more tuning will be doned                                                                                             #
     #                                                                                                                                                       #
     # with alpha = 0.5 , it seems like going above 25 epoch does not change much and above 90 can be found around 10 epoch , 25 epoch yielded 0.02 better.  #
     # alpha 0.5 :: 15epoch = 0.9191 , 20epoch = 0.9223, 25epoch = 0.926 , 50epoch = 0.9384, 75epoch = 0.9476// 200 = 0.9517 #W TEST DATA                    #
-    # it takes about 5080 sek to train 75 epoch                                                                                                             #
+    # it takes about 5080 sek to train 75 epoch, with batching = sized 190 epoch 200 === testacc == 0.9601. with batching size 10 and epochs =150 tacc=0.9774                                                                                                              #
     #                                                                                                                                                       #
     #                                                                                                                                                       #
     #########################################################################################################################################################
@@ -103,12 +103,11 @@ def main():
 
     # learning rate sometimes referred as alpha is the desired scalar to move in the gradient descent optimizing
 
-    learningrate = 0.5
+    learningrate = 0.02
 
     # one epcoch means training once with the whole training data
 
-    Epocs = 10
-
+    Epocs = 150
     #choose relU or sigmoid
 
     actication_func = ['relU', 'sigmoid']
@@ -121,8 +120,9 @@ def main():
     # Everything should be ready for training
 
     print(f'< Epoch goal: {Epocs}, alpha: {learningrate} >')
-    params = utils.gradient_descent(X_training, Y_training, NN_layer_format, Epocs,
+    params = utils.gradient_descent_batch(X_training, Y_training, NN_layer_format, Epocs,
                            learningrate, actication_func[0], X_test, Y_test)
+
 
     # This will run the test data trought the model and calculate error with unseen data agter training
 
