@@ -18,7 +18,7 @@ There is simple Tkinter GUI implemented where you can draw your own digits. Thos
 
 ### Current model used in GUI: *test_data accuracy = 0.9517*
 
-![](https://github.com/JuusoSaavalainen/Neural-network-with-numpy/blob/main/documentation/gui.gif)  |  ![](https://github.com/JuusoSaavalainen/Neural-network-with-numpy/blob/main/documentation/gui%20info.png)
+![](https://github.com/JuusoSaavalainen/Neural-network-with-numpy/blob/main/documentation/gui.gif)![](https://github.com/JuusoSaavalainen/Neural-network-with-numpy/blob/main/documentation/gui%20info.png)
 
 ## Installing
 
