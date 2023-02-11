@@ -26,9 +26,9 @@ def convert_to_csv(image, label, out, n):
 
 # Commands used to generate the csv files
 #
-# convert_to_csv("/home/saavajuu/tiraLAB/src/data/train-images.idx3-ubyte", "/home/saavajuu/tiraLAB/src/data/train-labels.idx1-ubyte",
+# convert_to_csv("ADD YOUR PATH HERE-> ../Neural-network-with-nympy/src/data/train-images.idx3-ubyte", "ADD YOUR PATH HERE-> ../Neural-network-with-nympy/src/data/train-labels.idx1-ubyte",
 #        "/home/saavajuu/tiraLAB/src/data/mnist_train.csv", 60000)
 
-# convert_to_csv("/home/saavajuu/tiraLAB/src/data/t10k-images.idx3-ubyte", "/home/saavajuu/tiraLAB/src/data/t10k-labels.idx1-ubyte",
+# convert_to_csv("ADD YOUR PATH HERE-> ../Neural-network-with-nympy/src/data/t10k-images.idx3-ubyte", "ADD YOUR PATH HERE-> ../Neural-network-with-nympy/src/data/t10k-labels.idx1-ubyte",
 #        "/home/saavajuu/tiraLAB/src/data/mnist_test.csv", 10000)
 
