@@ -14,7 +14,7 @@ Gif demonstrating forward prop in the model with 2 hidden layers
 ## GUI
 
 If you dont wish to explore the training and the modularity of the model , you can test it with the GUI provided with the pretrained model.
-There is simple Tkinter GUI implemented where you can draw your own digits. Those will be inputted to the model and you will be provided with the guess of the model. The implementation is not nearly as good as it could be, but with proper centered drawings it seems to preform really nice. The model included will be always the best current version possible.
+There is simple Tkinter GUI implemented where you can draw your own digits. Those will be inputted to the model and you will be provided with the guess of the model. The implementation is not nearly as good as it could be, but with proper centered drawings it seems to preform really nice. The model included will be always the best current version possible. Applying some centering algo to the canvas would increase the accuracy withot depending the model accuracy.
 
 
 ![](https://github.com/JuusoSaavalainen/Neural-network-with-numpy/blob/main/documentation/gui.gif)  |  ![](https://github.com/JuusoSaavalainen/Neural-network-with-numpy/blob/main/documentation/gui%20info.png)
