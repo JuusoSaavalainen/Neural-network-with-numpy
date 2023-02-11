@@ -8,8 +8,8 @@ Deep Neural network (DNN) implementation with MNIST db from scratch using NumPy.
 
 ![](https://github.com/JuusoSaavalainen/Neural-network-with-numpy/blob/main/documentation/nnsimumnist.gif)
 
-Gif demonstrating forward prop in the model with 2 hidden layers
-[[source]](https://medium.com/analytics-vidhya/applying-ann-digit-and-fashion-mnist-13accfc44660)
+> *Gif demonstrating forward prop in the model with 2 hidden layers
+[[source]](https://medium.com/analytics-vidhya/applying-ann-digit-and-fashion-mnist-13accfc44660)*
 
 ## GUI
 
