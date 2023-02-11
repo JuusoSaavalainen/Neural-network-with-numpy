@@ -25,6 +25,9 @@ There is simple Tkinter GUI implemented where you can draw your own digits. Thos
 You need to have Python installed with Poetry to be able to run this application. Clone the repository to your desired path.
 
 ```bash
+# You should use
+$ poetry shell
+
 # Install dependencies
 $ poetry install
 
