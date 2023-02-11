@@ -26,8 +26,6 @@ I am capable to write python and i wish to peer review projects made with it. I 
 
 [Backpropagation](https://www.adeveloperdiary.com/data-science/machine-learning/understand-and-implement-the-backpropagation-algorithm-from-scratch-in-python/) better than wikipedia
 
-[Backpropagation](https://ai.stackexchange.com/questions/36520/simple-dimension-unmatch-problem-of-a-simple-neural-network) in simple architech
-
 [Backpropagation](https://towardsdatascience.com/understanding-backpropagation-algorithm-7bb3aa2f95fd) and other relevant functions
 
 [Converting](https://pjreddie.com/projects/mnist-in-csv/) 
