@@ -51,8 +51,9 @@ $ poetry run invoke train
 ## Docs
 * [Specification document](https://github.com/JuusoSaavalainen/TiraLAB/blob/main/documentation/specification.md)
 * [Test document](https://github.com/JuusoSaavalainen/TiraLAB-Neural-network-with-numpy/blob/main/documentation/testdocumentation.md)
-
+* [Implementation document](https://github.com/JuusoSaavalainen/Neural-network-with-numpy/blob/main/documentation/implementation.md)
 ### Weekly raports
 * [Week 1](https://github.com/JuusoSaavalainen/TiraLAB/blob/main/documentation/weeklyrecap1.md)
 * [Week 2](https://github.com/JuusoSaavalainen/TiraLAB-Neural-network-with-numpy/blob/main/documentation/weeklyrecap2.md)
 * [Week 3](https://github.com/JuusoSaavalainen/TiraLAB-Neural-network-with-numpy/blob/main/documentation/weeklyrecap3.md)
+* [Week 4](https://github.com/JuusoSaavalainen/Neural-network-with-numpy/blob/main/documentation/weeklyrecap4.md)
