@@ -43,7 +43,7 @@ def make_guess(image, params):
     display_number(act_pred)
 
 def load_dict():
-    with open('src/model/model.pickle', 'rb') as f:
+    with open('src/model/model98.pickle', 'rb') as f:
         params = pickle.load(f)
     return params
 
