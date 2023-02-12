@@ -6,5 +6,9 @@ def startgui(ctx):
 
 @task
 def train(ctx):
-    ctx.run("python src/data/idx_to_csv.py", pty=True)
     ctx.run("python src/model/main.py", pty=True)
+    
+@task
+def dowloadmnist(ctx):
+    ctx.run("python src/data/idx_to_csv.py", pty=True)
+
