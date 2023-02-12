@@ -7,6 +7,8 @@ To be able to train your custom neural network , and test the model in practice
 
 The model implementation is a Deep Neural Network (DNN) built from scratch using NumPy, with the MNIST database as the data source. The network architecture is designed to be modular, allowing for exploration of different layer configurations and hyperparameters. The current implementation that is used in GUI uses a 5-layer setup, with fully connected layers, making it a Multilayer Perceptron (MLP). 
 
+In the model many things are used but the main ones are backpropagation , forwardpropagation, onehot encoding, softmax, relU (also derived), sigmoid (also derived), and gradient descent with batching. Most of the data is stored in dicst containing numpy arrays. Model with stochastic gradient descent is also implemented with batch size of 0. Training with the batch model is way more efficient and i dont think there is usage for now atleast. It is still keepd for the comparision possibilities.
+
 
 ## GUI
 
