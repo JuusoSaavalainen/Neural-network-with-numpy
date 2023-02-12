@@ -328,8 +328,7 @@ def gradient_descent_batch(X, Y, layers_dims, max_iter, alpha, batchsize, actifu
             losses.append(loss)
 
         # print accuracy and loss after each epoch
-        print("Epoch:", iteration, "| Training accuracy:", np.mean(
-            accuracies), "Loss:", np.mean(losses))
+        print(f'Epoch -> {iteration:3} / {max_iter:1} | Training accuracy:{np.mean(accuracies):20} | Loss: {np.mean(losses):14}')
         # reset the lists for accuracy and loss after each epoch
         accuracies, losses = [], []
     return params

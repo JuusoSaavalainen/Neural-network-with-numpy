@@ -22,14 +22,14 @@ def main():
 
     # load the data as so path to train data is defined here that is why its here.
     # loading of the test data can be doned similarly
-    
-    # THESE PATHS SHOULD POINT TO YOUR CSV FILES DOWLOADED
+
+    #These
     data = pd.read_csv(
-        'ENTER YOUR PATH ../src/data/mnist_train.csv', header=None)
+        '/home/saavajuu/tiraLAB/src/data/mnist_train.csv', header=None)
 
     #real testing data is here
     non_train_test = pd.read_csv(
-        'ENTER YOUR PATH ../src/data/mnist_test.csv', header=None)
+        '/home/saavajuu/tiraLAB/src/data/mnist_test.csv', header=None)
 
 
     # randomize the pickd data
@@ -125,9 +125,10 @@ def main():
 
     # Everything should be ready for training
 
-    print(f'< Your layot:  {NN_layer_format} >')
-    print(f'< alpha = {learningrate}, batchsize = {batchsize}, epocs = {Epocs}, activation funtion = {actication_func} >')
-    print(f'< Training starts >')
+    print(f'<< Your layot:  {NN_layer_format} <<')
+    print(f'<< alpha = {learningrate}, batchsize = {batchsize}, epocs = {Epocs}, activation funtion = {actication_func} <<')
+    print(f'<< Training starts <<')
+    
     params = utils.gradient_descent_batch(X_training, Y_training, NN_layer_format, Epocs,
                            learningrate, batchsize, actication_func)
 
@@ -142,7 +143,7 @@ def main():
 
 
 
-    #with open('NEW_trained150e.pickle', 'wb') as f:
+    #with open('NEWQ_trained150e.pickle', 'wb') as f:
     #    pickle.dump(params, f)
 
 if __name__ == '__main__':
