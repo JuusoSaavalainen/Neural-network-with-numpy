@@ -69,20 +69,21 @@ def draw(event):
 def display_message():
     tkinter.messagebox.showinfo("About this UI", "Please draw slowly to get better results, and try to write in the center. Since the implementation of drawing is not perfect moving the mouse too fast while drawing will lead to bad results. Also please try to avoid drawing in the corners and walls of the canvas. Drawing too small digits will also impact negatively since the canvas will be smoothened out when runned on the model")
 
-root = tk.Tk()
-root.title("Digit regocniti")
+if __name__ == '__main__':
+    root = tk.Tk()
+    root.title("Digit regocniti")
 
-canvas = tk.Canvas(root, width=280, height=280, bg="white")
-canvas.pack()
+    canvas = tk.Canvas(root, width=280, height=280, bg="white")
+    canvas.pack()
 
-canvas.bind("<B1-Motion>", draw)
+    canvas.bind("<B1-Motion>", draw)
 
-save_button = tk.Button(root, text="Make Ai guess", command=save_image)
-save_button.pack()
+    save_button = tk.Button(root, text="Make Ai guess", command=save_image)
+    save_button.pack()
 
-message_button = tk.Button(root, text="UI INFO", command=display_message)
-message_button.pack()
+    message_button = tk.Button(root, text="UI INFO", command=display_message)
+    message_button.pack()
 
-root.mainloop()
+    root.mainloop()
 
 

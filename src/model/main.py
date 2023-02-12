@@ -79,7 +79,7 @@ def main():
     #########################################################################################################################################################
     #                                                                                                                                                       #
     # Set the wanted layers and other setable hyperparams                                                                                                   #
-    #                                           ___________HIDDEN LAYERS I-III_____________                                                                 #
+    #                  333                         ___________HIDDEN LAYERS I-III_____________                                                                 #
     #                                           | L1(in)  L2     L3       L4      L5(out) |                                                                 #
     # Right now im experiementing with this:    |  784  | 256 | 256/2 | 256/2/2 |    10   | ;model with 3 hidden layers.                                    #
     #                                           |_________________________________________|                                                                 #
@@ -90,7 +90,7 @@ def main():
     # alpha 0.5 :: 15epoch = 0.9191 , 20epoch = 0.9223, 25epoch = 0.926 , 50epoch = 0.9384, 75epoch = 0.9476// 200 = 0.9517 #W TEST DATA                    #
     # it takes about 5080 sek to train 75 epoch, with batching = sized 190 epoch 200 === testacc == 0.9601. with batching size 10 and epochs =150 tacc=0.9774                                                                                                              #
     #                                                                                                                                                       #
-    #                                                                                                                                                       #
+    #           0.9801 with layer above lr = 0.02 epoch 150 batching in 10 samples                                                                                               #
     #########################################################################################################################################################
 
     # __HERE_YOU_CAN_SET_THE_FORMAT_OF_LAYERS_AND_OTHER_HYPERPARAMS!!!!__
@@ -98,42 +98,50 @@ def main():
 
     # this is format of the network firs and last layer needs to be 784 and 10, but the amount of nodes
     # and the amount of those hidden layers between in and output can be anything, set it how you like
+    NN_layer_format = [784]
+    n_layers = int(input('How many hidden layers? '))
+    for i in range(1, n_layers + 1):
+        layer = int(input(f'Size of the ({i}.) layer? '))
+        NN_layer_format.append(layer)
+    NN_layer_format.append(10)
 
-    NN_layer_format = [784, 256, 128, 64, 10]
+    batchsize = int(input('Size of a batch? '))
 
     # learning rate sometimes referred as alpha is the desired scalar to move in the gradient descent optimizing
 
-    learningrate = 0.02
+    learningrate = float(input('Learning rate / alpha ? '))
 
     # one epcoch means training once with the whole training data
 
-    Epocs = 150
+    Epocs = int(input('Number of epocs ? '))
     #choose relU or sigmoid
 
-    actication_func = ['relU', 'sigmoid']
+    actication_func = (input('Actuvation function ? choose [relU , sigmoid]: '))
 
     # if you want to see pics and labels during test forwarding set this True
-
-    visualize = False
-
+    #visualize = (input('Visualize testing data after training ? type [ y ] to activate: '))
 
     # Everything should be ready for training
 
-    print(f'< Epoch goal: {Epocs}, alpha: {learningrate} >')
+    print(f'< Your layot:  {NN_layer_format} >')
+    print(f'< alpha = {learningrate}, batchsize = {batchsize}, epocs = {Epocs}, activation funtion = {actication_func} >')
+    print(f'< Training starts >')
     params = utils.gradient_descent_batch(X_training, Y_training, NN_layer_format, Epocs,
-                           learningrate, actication_func[0], X_test, Y_test)
+                           learningrate, batchsize, actication_func)
 
 
     # This will run the test data trought the model and calculate error with unseen data agter training
+    #if visualize == 'y':
+    #    utils.test_model(X_test, Y_test, params, True)
 
-    utils.test_model(X_test, Y_test, params, visualize)
-
-
+    #if visualize != "y":
+    utils.test_model(X_test, Y_test, params, False)
     # this will be used to capture the calculated weights if we want to save the model
 
-    #with open('w_b_dict_trained150e.pickle', 'wb') as f:
-    #    pickle.dump(params, f)
 
+
+    #with open('NEW_trained150e.pickle', 'wb') as f:
+    #    pickle.dump(params, f)
 
 if __name__ == '__main__':
     main()

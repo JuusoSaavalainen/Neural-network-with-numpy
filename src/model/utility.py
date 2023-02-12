@@ -1,10 +1,9 @@
 # Numpy is used to ease the calculation process of all algos in this file
 import numpy as np
 
-# seaborn and matplotlib are purely for plotting to visualize results
+# matplotlib is purely for plotting to visualize results
 import matplotlib.pyplot as plt
-import seaborn as sns
-import time 
+
 #######################################################################
 # _______________DATA HANDLERS / FORMATTER / ENCODERS__________________#
 
@@ -170,7 +169,7 @@ def forwardprop(X, parameters, activation_function='relU'):
     return activations
 
 
-def backprop(activations, parameters, labels, activation_function='relU'):
+def backprop(activations, parameters, labels, sizeb, activation_function='relU'):
     """
     the main algo used in optimizing the NN
 
@@ -187,7 +186,7 @@ def backprop(activations, parameters, labels, activation_function='relU'):
     num_layers = len(parameters) // 2
     one_hot_labels = one_hot(labels)
     # hardcoded thinks that training will be with whole dataset this will not stay
-    trainingsize = 48000
+    trainingsize = sizeb
     derivatives, gradients = {}, {}
 
     # For the last layer (no actvation func derivate needed)
@@ -270,7 +269,7 @@ def compute_loss(predictions, targets):
     return loss
 
 
-def gradient_descent(X, Y, layers_dims, max_iter, alpha, actifunc, X_test, Y_test):
+def gradient_descent_batch(X, Y, layers_dims, max_iter, alpha, batchsize, actifunc):
     """
     Optimizes the neural network parameters using gradient descent optimization algorithm.
     This is the training loop of the nn , this is not the smartest way since it optimizez after every sample.
@@ -290,6 +289,68 @@ def gradient_descent(X, Y, layers_dims, max_iter, alpha, actifunc, X_test, Y_tes
     params - optimized parameters for the neural network
     """
 
+    params = init__nn(layers_dims)
+
+    L = len(params) // 2
+    accuracies, losses = [], []
+
+
+    # iterate through the optimization in batches
+    for iteration in range(1, max_iter + 1):
+        
+
+        data = list(zip(X,Y))
+        np.random.shuffle(data)
+
+        #baching
+        mini_batches = [data[j:j + batchsize] for j in range(0, 48000, batchsize)]
+
+        for batch in mini_batches:
+            x,y = batch[0][0],batch[0][1]
+
+
+            # forward propagation to compute activations
+            activations = forwardprop(x, params, actifunc)
+
+            # make predictions
+            predictions = activations[f'A{L}']
+
+            # backpropagation to compute gradients
+            gradients = backprop(activations, params, y, 10,  actifunc)
+
+            # update parameters using gradients 
+            params = update_parameters(params, gradients, alpha)
+
+            # append accuracy and loss to their respective lists
+            accuracy = compute_accuracy(predictions, one_hot(y))
+            loss = compute_loss(predictions, one_hot(y))
+            accuracies.append(accuracy)
+            losses.append(loss)
+
+        # print accuracy and loss after each epoch
+        print("Epoch:", iteration, "| Training accuracy:", np.mean(
+            accuracies), "Loss:", np.mean(losses))
+        # reset the lists for accuracy and loss after each epoch
+        accuracies, losses = [], []
+    return params
+
+def gradient_descent(X, Y, layers_dims, max_iter, alpha, actifunc, X_test, Y_test):
+    """
+    Optimizes the neural network parameters using gradient descent optimization algorithm.
+    This is the training loop of the nn , this is not the smartest way since it optimizez after every sample.
+    this could be changet later to stocastic or batch type implemention of training. 
+    Parameters:
+    X - input data
+    Y - target values
+    layers_dims - list of layer dimensions, including input and output layer
+    max_iter - maximum number of iterations for optimization
+    alpha - learning rate
+    actifuc - chosen activation function name 
+    x_train, y_train - temporary params here
+    Returns:
+    params - optimized parameters for the neural network
+    """
+    
     # initialize parameters
     params = init__nn(layers_dims)
     L = len(params) // 2
@@ -306,9 +367,9 @@ def gradient_descent(X, Y, layers_dims, max_iter, alpha, actifunc, X_test, Y_tes
             predictions = activations[f'A{L}']
 
             # backpropagation to compute gradients
-            gradients = backprop(activations, params, y, actifunc)
+            gradients = backprop(activations, params, y, 48000, actifunc)
 
-            # update parameters using gradients
+            # update parameters using gradientst
             params = update_parameters(params, gradients, alpha)
 
             # append accuracy and loss to their respective lists
@@ -329,12 +390,12 @@ def test_model(x,y,params,visualize):
     i = 0
     test_acc = 0
     rounds = 0
-    fail_pics = []
     correct_pics = []
+    num_layers = len(params) // 2
 
     for x, y in zip(x, y):
         activations = forwardprop(x, params)
-        predictions = activations[f'A4'] #stupid hardcore debugging
+        predictions = activations[f'A{num_layers}'] #stupid hardcore debugging
 
         if visualize == True and i < 50:
             # Plot the input image
@@ -350,5 +411,9 @@ def test_model(x,y,params,visualize):
             correct_pics.append(x)
         rounds +=1
         i +=1
-    print(test_acc/rounds)
+    if (test_acc/rounds)*100 <= 10:
+        print(f'Your model got {(test_acc/rounds)*100}% right with the Test_data not used in training.')
+        print('I can guess better than that model')
+
+    print(f'Your model got {(test_acc/rounds)*100}% right with the Test_data not used in training.')
 
