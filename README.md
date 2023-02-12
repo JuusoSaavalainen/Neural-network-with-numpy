@@ -1,7 +1,7 @@
 # Recognition of handwritten numbers using machine learning methdos
 
 ![GHA workflow badge](https://github.com/JuusoSaavalainen/TiraLAB-Neural-network-with-numpy/workflows/CI/badge.svg)
-[![codecov](https://codecov.io/gh/JuusoSaavalainen/TiraLAB-Neural-network-with-numpy/branch/main/graph/badge.svg?token=YO0Y9270ZS)](https://codecov.io/gh/JuusoSaavalainen/TiraLAB-Neural-network-with-numpy)
+[![codecov](https://codecov.io/gh/JuusoSaavalainen/Neural-network-with-numpy/branch/main/graph/badge.svg?token=YO0Y9270ZS)](https://codecov.io/gh/JuusoSaavalainen/Neural-network-with-numpy)
 ## Model
 
 Deep Neural network (DNN) implementation with MNIST db from scratch using NumPy. The layout of the network is set to be modular, so you can explore variations of layers and other hyperparameters with it. Generally i will be using 5 total layer setup. Regardless of the number of layers the model will be fully connected so we can call it MLP (Multilayer perceptron). Feel free to tune the model way you like. 
