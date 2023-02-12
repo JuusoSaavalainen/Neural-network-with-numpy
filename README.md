@@ -34,9 +34,14 @@ $ poetry install
 # Run the GUI to test the pretrained model
 $ poetry run invoke startgui
 
+# Download the data to csv by putting your paths to idx_to_csv.py file and running it with
+$ poetry run invoke dowloaddata
+
+# You should have (2.) csv files, fix path to those in main.py
+
 # Run the taining with your own model structure
-# First set the wanted hyperparameters to main.py
-# todo
+$ poetry run invoke train
+# 
 ```
 
 ## Docs
