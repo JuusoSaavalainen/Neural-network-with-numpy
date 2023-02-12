@@ -18,16 +18,18 @@ def main():
     """
     This is the main file to setup and train the Neural Network
     """
-    # ::STILL IN DEVELOP MODE:: running this will train and test with 20 examples with pics and labels
+    # ::STILL IN DEVELOP MODE:: 
 
     # load the data as so path to train data is defined here that is why its here.
     # loading of the test data can be doned similarly
+    
+    # THESE PATHS SHOULD POINT TO YOUR CSV FILES DOWLOADED
     data = pd.read_csv(
-        '/home/saavajuu/tiraLAB/src/data/mnist_train.csv', header=None)
+        'ENTER YOUR PATH ../src/data/mnist_train.csv', header=None)
 
     #real testing data is here
     non_train_test = pd.read_csv(
-        '/home/saavajuu/tiraLAB/src/data/mnist_test.csv', header=None)
+        'ENTER YOUR PATH ../src/data/mnist_test.csv', header=None)
 
 
     # randomize the pickd data
