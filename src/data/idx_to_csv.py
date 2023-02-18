@@ -27,8 +27,8 @@ def convert_to_csv(image, label, out, n):
 # Commands used to generate the csv files these are commentent bcs your path must specified before usage
 #
 #convert_to_csv("ADD YOUR PATH HERE-> ../Neural-network-with-nympy/src/data/train-images.idx3-ubyte", "ADD YOUR PATH HERE-> ../Neural-network-with-nympy/src/data/train-labels.idx1-ubyte",
-#        "/home/saavajuu/tiraLAB/src/data/mnist_train.csv", 60000)
+#        "ADD YOUR PATH TO WHERE NEWCSV FILE-> ../Neural-network-with-nympy/src/data/mnist_train.csv", 60000)
 
 #convert_to_csv("ADD YOUR PATH HERE-> ../Neural-network-with-nympy/src/data/t10k-images.idx3-ubyte", "ADD YOUR PATH HERE-> ../Neural-network-with-nympy/src/data/t10k-labels.idx1-ubyte",
-#        "/home/saavajuu/tiraLAB/src/data/mnist_test.csv", 10000)
+#        "ADD YOUR PATH TO WHERE NEWCSV FILE-> ../Neural-network-with-nympy/src/data/mnist_test.csv", 10000)
 
