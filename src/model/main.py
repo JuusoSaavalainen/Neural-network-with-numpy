@@ -5,15 +5,6 @@ import utility as utils
 import gui as gui
 import pickle
 
-#############
-#  TiraLab  #
-#  2023/III #
-#  Author:  #
-#  Juuso S  #
-#           #
-#############
-
-
 def main():
     """
     This is the main file to setup and train the Neural Network
@@ -78,28 +69,7 @@ def main():
     X_validating = utils.normalize_zero_one(X_validating)
     X_test = utils.normalize_zero_one(X_test)
 
-    #########################################################################################################################################################
-    #                                                                                                                                                       #
-    # Set the wanted layers and other setable hyperparams                                                                                                   #
-    #                  333                         ___________HIDDEN LAYERS I-III_____________                                                                 #
-    #                                           | L1(in)  L2     L3       L4      L5(out) |                                                                 #
-    # Right now im experiementing with this:    |  784  | 256 | 256/2 | 256/2/2 |    10   | ;model with 3 hidden layers.                                    #
-    #                                           |_________________________________________|                                                                 #
-    #                                                                                                                                                       #
-    # these seems to get good outputs more tuning will be doned                                                                                             #
-    #                                                                                                                                                       #
-    # with alpha = 0.5 , it seems like going above 25 epoch does not change much and above 90 can be found around 10 epoch , 25 epoch yielded 0.02 better.  #
-    # alpha 0.5 :: 15epoch = 0.9191 , 20epoch = 0.9223, 25epoch = 0.926 , 50epoch = 0.9384, 75epoch = 0.9476// 200 = 0.9517 #W TEST DATA                    #
-    # it takes about 5080 sek to train 75 epoch, with batching = sized 190 epoch 200 === testacc == 0.9601. with batching size 10 and epochs =150 tacc=0.9774                                                                                                              #
-    #                                                                                                                                                       #
-    #           0.9801 with layer above lr = 0.02 epoch 150 batching in 10 samples                                                                                               #
-    #########################################################################################################################################################
-
-    # __HERE_YOU_CAN_SET_THE_FORMAT_OF_LAYERS_AND_OTHER_HYPERPARAMS!!!!__
-    # setable: nn format , learningrate , epocs , actifunct, visualize
-
-    # this is format of the network firs and last layer needs to be 784 and 10, but the amount of nodes
-    # and the amount of those hidden layers between in and output can be anything, set it how you like
+    ---->
     NN_layer_format = [784]
     n_layers = int(input('How many hidden layers? '))
     for i in range(1, n_layers + 1):
