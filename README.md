@@ -18,7 +18,7 @@ There is simple Tkinter GUI implemented where you can draw your own digits. Thos
 
 ## Training simple CLI
 
-If you want you can train the model with your own parameters. Read the Instaling part carefully, several paths must be switched so it works (better solution soon). 
+If you want you can train the model with your own parameters. Follow the instructions please. 
 
 ### Current model used in GUI: *test_data accuracy = 98.16%*
 
@@ -38,10 +38,8 @@ $ poetry install
 # Run the GUI to test the pretrained model
 $ poetry run invoke startgui
 
-# Download the data to csv by putting your paths to idx_to_csv.py file and running it with
+# Download the data to csv format
 $ poetry run invoke dowloadmnist
-
-# You should have (2.) csv files, fix path to those in main.py
 
 # Run the taining cli
 $ poetry run invoke train
