@@ -2,6 +2,7 @@ import tkinter as tk
 import tkinter.messagebox
 import cv2
 import utility as utils
+import dataformat as dataformat
 import numpy as np
 import pickle
 
@@ -21,19 +22,20 @@ def save_image():
     image = np.flip(image, axis=0)
     image = cv2.blur(image,(2,2))
     image = image.reshape(784, 1)
-    image = utils.normalize_zero_one(image)
+    image = dataformat.normalize_zero_one(image)
     image = np.array(image)
-    params = load_dict()
 
     #plt.imshow(image.reshape(28, 28), cmap='gray')
     #plt.show()
     # un comment to see as in mnist and with smoothening applied.
 
-    make_guess(image,params)
+    make_guess(image)
 
-def make_guess(image, params):
+def make_guess(image):
     reset()
-    activations = utils.forwardprop(image, params)
+    nn = utils.NeuralNetwork([784, 256, 128, 64, 10])
+    params = nn.load_params()
+    activations = nn.forwardprop(image, 'relU')
     predictedout = activations[f'A4']
 
         #want to see the outputlayer as whole? uncomment this
