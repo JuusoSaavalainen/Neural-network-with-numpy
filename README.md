@@ -38,10 +38,8 @@ $ poetry install
 # Run the GUI to test the pretrained model
 $ poetry run invoke startgui
 
-# Download the data to csv by putting your paths to idx_to_csv.py file and running it with
+# Download the data to csv format
 $ poetry run invoke dowloadmnist
-
-# You should have (2.) csv files, fix path to those in main.py
 
 # Run the taining cli
 $ poetry run invoke train
