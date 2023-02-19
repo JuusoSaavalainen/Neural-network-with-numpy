@@ -1,8 +1,6 @@
 # Numpy is used to ease the calculation process of all algos in this file
 import numpy as np
 
-# matplotlib is purely for plotting to visualize results
-import matplotlib.pyplot as plt
 
 #######################################################################
 # _______________DATA HANDLERS / FORMATTER / ENCODERS__________________#
@@ -125,6 +123,9 @@ def softmax(Z):
     Returns:
         numpy array / scalar applied the softmax funct
     """
+    #stabilizer
+    Z = Z - max(Z)
+
     expZ = np.exp(Z) / sum(np.exp(Z))
     return expZ
 
@@ -298,7 +299,7 @@ def gradient_descent_batch(X, Y, layers_dims, max_iter, alpha, batchsize, actifu
     # iterate through the optimization in batches
     for iteration in range(1, max_iter + 1):
         
-
+        print(len(Y))
         data = list(zip(X,Y))
         np.random.shuffle(data)
 
@@ -308,7 +309,6 @@ def gradient_descent_batch(X, Y, layers_dims, max_iter, alpha, batchsize, actifu
         for batch in mini_batches:
             x,y = batch[0][0],batch[0][1]
 
-
             # forward propagation to compute activations
             activations = forwardprop(x, params, actifunc)
 
@@ -316,7 +316,7 @@ def gradient_descent_batch(X, Y, layers_dims, max_iter, alpha, batchsize, actifu
             predictions = activations[f'A{L}']
 
             # backpropagation to compute gradients
-            gradients = backprop(activations, params, y, 10,  actifunc)
+            gradients = backprop(activations, params, y, batchsize,  actifunc)
 
             # update parameters using gradients 
             params = update_parameters(params, gradients, alpha)
@@ -415,4 +415,3 @@ def test_model(x,y,params,visualize):
         print('I can guess better than that model')
 
     print(f'Your model got {(test_acc/rounds)*100}% right with the Test_data not used in training.')
-

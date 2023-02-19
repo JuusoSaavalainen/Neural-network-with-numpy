@@ -1,9 +1,7 @@
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 import utility as utils
 import gui as gui
-import pickle
 
 def main():
     """
@@ -28,7 +26,7 @@ def main():
     t_data = utils.randomize_rows(non_train_test)
 
 
-    # divide to validation set and transpose it, now one column represents one picture.
+    # divide to validation set, now one column represents one picture.
     # validation set is not used for training thus its here if neeeded to evaluate results.
     validation_rate = 0.8
     training_size = round(data.shape[0] * validation_rate)
@@ -69,7 +67,7 @@ def main():
     X_validating = utils.normalize_zero_one(X_validating)
     X_test = utils.normalize_zero_one(X_test)
 
-    
+
     NN_layer_format = [784]
     n_layers = int(input('How many hidden layers? '))
     for i in range(1, n_layers + 1):
