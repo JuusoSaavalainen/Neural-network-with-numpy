@@ -18,7 +18,7 @@ There is simple Tkinter GUI implemented where you can draw your own digits. Thos
 
 ## Training simple CLI
 
-If you want you can train the model with your own parameters. Read the Instaling part carefully, several paths must be switched so it works (better solution soon). 
+If you want you can train the model with your own parameters. Follow the instructions please. 
 
 ### Current model used in GUI: *test_data accuracy = 98.16%*
 
