@@ -1,7 +1,6 @@
 import unittest
 import numpy as np
-import pickle as pickle
-from model.utility import forwardprop
+from model.utility import NeuralNetwork
 
 class TestFprop(unittest.TestCase):
     def setUp(self):
@@ -10,27 +9,21 @@ class TestFprop(unittest.TestCase):
         self.X_training = np.reshape(a, (784, 1))
         self.X_training = np.array(self.X_training)
 
-        # pre trained weights as reference to show how it should behave
-        with open('src/model/model98.pickle', 'rb') as f:
-            self.paramsr = pickle.load(f)
-
-
         #Generate weights for 3 layer network with seed 
-        layers_dims = [784,10,10]
+        self.layers_dims = [784,10,10]
         np.random.seed(42)
-        self.params = {}
-        for i in range(1,len(layers_dims)):
-            self.params[f'W{i}'] = np.random.randn(
-                layers_dims[i], layers_dims[i-1]) * np.sqrt(1/layers_dims[i])
-            self.params[f'b{i}'] = np.random.randn(
-                layers_dims[i], 1) * np.sqrt(1/layers_dims[i])
+        self.nn = NeuralNetwork(self.layers_dims)
+
 
     
     def test_forwardprop_wrong(self):
         #test that ensures that with given seed "randomized" weights yield wrong answer 
-        actual = forwardprop(self.X_training, self.params)
+
+        actual = self.nn.forwardprop(self.X_training)
         self.assertFalse(np.argmax(actual['A2']) == 1)
 
     def test_forwardprop_right(self):
-        actual = forwardprop(self.X_training,self.paramsr)
+
+        self.nn.load_params()
+        actual = self.nn.forwardprop(self.X_training)
         self.assertTrue(np.argmax(actual['A4']) == 1)
