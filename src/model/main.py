@@ -69,7 +69,7 @@ def main():
     X_validating = utils.normalize_zero_one(X_validating)
     X_test = utils.normalize_zero_one(X_test)
 
-    ---->
+    
     NN_layer_format = [784]
     n_layers = int(input('How many hidden layers? '))
     for i in range(1, n_layers + 1):
