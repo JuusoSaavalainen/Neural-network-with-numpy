@@ -102,19 +102,8 @@ def main():
     params = utils.gradient_descent_batch(X_training, Y_training, NN_layer_format, Epocs,
                            learningrate, batchsize, actication_func)
 
-
-    # This will run the test data trought the model and calculate error with unseen data agter training
-    #if visualize == 'y':
-    #    utils.test_model(X_test, Y_test, params, True)
-
-    #if visualize != "y":
     utils.test_model(X_test, Y_test, params, False)
-    # this will be used to capture the calculated weights if we want to save the model
 
-
-
-    #with open('NEWQ_trained150e.pickle', 'wb') as f:
-    #    pickle.dump(params, f)
 
 if __name__ == '__main__':
     main()
