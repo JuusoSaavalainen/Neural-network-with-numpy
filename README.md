@@ -20,7 +20,7 @@ There is simple Tkinter GUI implemented where you can draw your own digits. Thos
 
 If you want you can train the model with your own parameters. Follow the instructions please. 
 
-### Current model used in GUI: *test_data accuracy = 98.16%*
+#### Current model used in GUI: *test_data accuracy = 98.16%*
 
 ![](https://github.com/JuusoSaavalainen/Neural-network-with-numpy/blob/main/documentation/gui.gif)![](https://github.com/JuusoSaavalainen/Neural-network-with-numpy/blob/main/documentation/gui%20info.png)
 
