@@ -25,11 +25,11 @@ There is simple Tkinter GUI implemented where you can draw your own digits. Thos
 If you want you can train the model with your own parameters. Follow the instructions please. 
 
 In the training you can choose custom values to these parameter:
-- *Number of hidden layers* [positive number]
-- *Size of those layers* [postive number]
-- *Learning rate* [positive number]
-- *Epochs* [positive number]
-- *Batch size* [positive number] 
+- *Number of hidden layers* [positive number] Exmpl = 3
+- *Size of those layers* [postive number] Exmpl = 256, 128 ,64
+- *Learning rate* [positive number] Exmpl = 0.03
+- *Epochs* [positive number] Exmpl = 10
+- *Batch size* [positive number] Exmpl = 32
 - *Activation function* [relU, sigmoid]
 
 ## Installing
