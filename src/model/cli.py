@@ -43,8 +43,8 @@ class NNCLI:
                     break
                 except ValueError:
                     print("Please enter a positive integer for the size of each hidden layer.")
-            self.NN_layer_format.append(10)
             self.clear()
+        self.NN_layer_format.append(10)
 
     def prompt_batch_size(self):
         while True:
@@ -61,7 +61,7 @@ class NNCLI:
     def prompt_learning_rate(self):
         while True:
             try:
-                self.learningrate = float(input('Learning rate / Alpha ? [ This is the size of a step (scalar) in gradient descent , Float example (0.3) ] '))
+                self.learningrate = float(input('Learning rate / Alpha ? [ This is the size of a step (scalar) in gradient descent , Float example (0.03) ] '))
                 if self.learningrate <= 0:
                     raise ValueError("Learning rate must be a positive float.")
                 break
