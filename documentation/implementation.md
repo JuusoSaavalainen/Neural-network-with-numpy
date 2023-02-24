@@ -17,7 +17,7 @@ For those who do not wish to explore the training process or the modularity of t
 ## Training (CLI)
 *only mvp avaible work in progress*
 
-If desired, the model can be trained with custom parameters. The process involves cloning the repository and using Poetry to install dependencies and run the training CLI. The `idx_to_csv.py` file must be updated with the desired file paths before running `dowloadmnist` with Poetry. Once the CSV files are obtained, the paths must be updated in the `main.py` file. The training CLI can then be run with `poetry run invoke train` after correct paths are added to files. This is a bad solution but this week i didnt have time to think this and this works. 
+If desired, the model can be trained with custom parameters. The process involves cloning the repository and using Poetry to install dependencies and run the training CLI. The `idx_to_csv.py` file must be runned with the `dowloadmnist` with Poetry. Once the CSV files are obtaine the training CLI can then be run with `poetry run invoke train`.  
 
 In the training you can choose custom values to these parameter:
 - *Number of hidden layers* [positive number]
