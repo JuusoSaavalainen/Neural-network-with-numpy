@@ -128,9 +128,9 @@ class NeuralNetwork:
         for i in range(1, n_layers):
             activations[f'Z{i}'] = np.dot(
                 self.params[f'W{i}'], activations[f'A{i-1}']) + self.params[f'b{i}']
-            if activation_function == 'relU':
+            if activation_function.lower() == 'relu':
                 activations[f'A{i}'] = self.relU(activations[f'Z{i}'])
-            elif activation_function == 'sigmoid':
+            elif activation_function.lower() == 'sigmoid':
                 activations[f'A{i}'] = self.sigmoid(activations[f'Z{i}'])
             else:
                 raise ValueError(
@@ -160,13 +160,13 @@ class NeuralNetwork:
 
         num_layers = len(parameters) // 2
         one_hot_labels = self.one_hot(labels)
-        # hardcoded thinks that training will be with whole dataset this will not stay
         trainingsize = sizeb
         derivatives, gradients = {}, {}
 
         # For the last layer (no actvation func derivate needed)
         derivatives['dZ' + str(num_layers)] = activations['A' +
                                                         str(num_layers)] - one_hot_labels
+        
         gradients['dW' + str(num_layers)] = 1 / trainingsize * np.dot(
             derivatives['dZ' + str(num_layers)], activations['A' + str(num_layers - 1)].T)
         gradients['db' + str(num_layers)
@@ -174,10 +174,10 @@ class NeuralNetwork:
 
         # For layers (L-1) to 1 (action func derivate needed)
         for layer in reversed(range(1, num_layers)):
-            if activation_function == 'relU':
+            if activation_function.lower() == 'relu':
                 derivatives[f'dZ{layer}'] = np.dot(
                     parameters[f'W{layer+1}'].T, derivatives[f'dZ{layer+1}']) * self.drelU(activations[f'Z{layer}'])
-            elif activation_function == 'sigmoid':
+            elif activation_function.lower() == 'sigmoid':
                 derivatives[f'dZ{layer}'] = np.dot(
                     parameters[f'W{layer+1}'].T, derivatives[f'dZ{layer+1}']) * self.dsigmoid(activations[f'Z{layer}'])
             else:
@@ -309,7 +309,7 @@ class NeuralNetwork:
 
         for x, y in zip(x, y):
             activations = self.forwardprop(x, actf)
-            predictions = activations[f'A{num_layers}'] #stupid hardcore debugging
+            predictions = activations[f'A{num_layers}']
 
             if visualize == True and i < 50:
                 # Plot the input image
@@ -328,5 +328,6 @@ class NeuralNetwork:
         if (test_acc/rounds)*100 <= 10:
             print(f'Your model got {(test_acc/rounds)*100}% right with the Test_data not used in training.')
             print('I can guess better than that model')
+            return
 
         print(f'Your model got {(test_acc/rounds)*100}% right with the Test_data not used in training.')
