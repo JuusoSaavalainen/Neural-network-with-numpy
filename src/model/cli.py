@@ -1,9 +1,6 @@
 import os
-import pickle
 import dataformat as dataformat
 from utility import NeuralNetwork
-
-
 
 class NNCLI:
     def __init__(self):
@@ -64,7 +61,7 @@ class NNCLI:
     def prompt_learning_rate(self):
         while True:
             try:
-                self.learningrate = float(input('Learning rate / Alpha ? [ This is the size of a step (scalar) in gradient descent , Float example (0.01) ] '))
+                self.learningrate = float(input('Learning rate / Alpha ? [ This is the size of a step (scalar) in gradient descent , Float example (0.3) ] '))
                 if self.learningrate <= 0:
                     raise ValueError("Learning rate must be a positive float.")
                 break
