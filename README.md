@@ -31,7 +31,7 @@ In the training you can choose custom values to these parameter:
 - *Learning rate* [positive number] ~Exmpl = 0.03
 - *Epochs* [positive number] ~Exmpl = 10
 - *Batch size* [positive number] ~Exmpl = 32
-- *Activation function* [relU, sigmoid]
+- *Activation function* [RelU, Sigmoid]
 
 ## Installing
 
