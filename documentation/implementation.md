@@ -29,6 +29,15 @@ In the training you can choose custom values to these parameter:
 
 Training type could also be customize able. 
 
+## Comparison
+Comparision is done with these base settings : Relu, 20 epocs, batch size = 10, learning rate = 0.03.
+In the comparision both have 1 hidden layer one with 10 nodes one with 100 nodes second is allways the on with 100:
+
+![10 nodes](https://github.com/JuusoSaavalainen/Neural-network-with-numpy/blob/main/documentation/acc2010.png)
+![100 nodes](https://github.com/JuusoSaavalainen/Neural-network-with-numpy/blob/main/documentation/acc20100.png)
+![10 nodes](https://github.com/JuusoSaavalainen/Neural-network-with-numpy/blob/main/documentation/loss2010.png)
+![100 nodes](https://github.com/JuusoSaavalainen/Neural-network-with-numpy/blob/main/documentation/loss20100.png)
+
 ## Time and space complexity
 todo
 
