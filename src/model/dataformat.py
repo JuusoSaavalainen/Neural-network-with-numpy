@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 
+
 def normalize_zero_one(data):
     """
     Function to push RGB values from 0-255 to interval 0-1
@@ -25,26 +26,23 @@ def randomize_rows(data):
     return df
 
 
-
 def format():
-    # ::STILL IN DEVELOP MODE:: 
+    # ::STILL IN DEVELOP MODE::
 
     # load the data as so path to train data is defined here that is why its here.
     # loading of the test data can be doned similarly
 
-    #These
+    # These
     data = pd.read_csv(
         'src/data/mnist_train.csv', header=None)
 
-    #real testing data is here
+    # real testing data is here
     non_train_test = pd.read_csv(
         'src/data/mnist_test.csv', header=None)
-
 
     # randomize the pickd data
     data = randomize_rows(data)
     t_data = randomize_rows(non_train_test)
-
 
     # divide to validation set, now one column represents one picture.
     # validation set is not used for training thus its here if neeeded to evaluate results.
@@ -72,7 +70,7 @@ def format():
     X_validating = [np.reshape(i, (784, 1)) for i in X_validating]
     X_validating = np.array(X_validating)
 
-    #testing data
+    # testing data
     X_test = [x[1:] for x in t_data]  # vals
     X_test = np.array(X_test)
     Y_test = t_data[:, 0]  # labels

@@ -6,8 +6,8 @@ import dataformat as dataformat
 import numpy as np
 import pickle
 
-def save_image():
 
+def save_image():
     x, y = (28, 28)
     image = np.zeros((x, y), dtype=np.uint8)
 
@@ -20,16 +20,17 @@ def save_image():
                     image[i][j] = 255
 
     image = np.flip(image, axis=0)
-    image = cv2.blur(image,(2,2))
+    image = cv2.blur(image, (2, 2))
     image = image.reshape(784, 1)
     image = dataformat.normalize_zero_one(image)
     image = np.array(image)
 
-    #plt.imshow(image.reshape(28, 28), cmap='gray')
-    #plt.show()
+    # plt.imshow(image.reshape(28, 28), cmap='gray')
+    # plt.show()
     # un comment to see as in mnist and with smoothening applied.
 
     make_guess(image)
+
 
 def make_guess(image):
     reset()
@@ -38,11 +39,12 @@ def make_guess(image):
     activations = nn.forwardprop(image, 'relU')
     predictedout = activations[f'A4']
 
-        #want to see the outputlayer as whole? uncomment this
-        #print(predictedout)
+    # want to see the outputlayer as whole? uncomment this
+    # print(predictedout)
 
     act_pred = np.argmax(predictedout)
     display_number(act_pred)
+
 
 def load_dict():
     with open('src/model/model98.pickle', 'rb') as f:
@@ -59,17 +61,21 @@ def reset():
     number_labels.clear()
     canvas.delete("all")
 
+
 def display_number(num):
     number_label = tk.Label(root, text=f"{num}")
     number_label.pack()
     number_labels.append(number_label)
 
+
 def draw(event):
     x, y = (event.x, event.y)
     canvas.create_oval(x-10, y-10, x+10, y+10, fill="black", outline="black")
 
+
 def display_message():
     tkinter.messagebox.showinfo("About this UI", "Please draw slowly to get better results, and try to write in the center. Since the implementation of drawing is not perfect moving the mouse too fast while drawing will lead to bad results. Also please try to avoid drawing in the corners and walls of the canvas. Drawing too small digits will also impact negatively since the canvas will be smoothened out when runned on the model")
+
 
 if __name__ == '__main__':
     root = tk.Tk()
@@ -87,5 +93,3 @@ if __name__ == '__main__':
     message_button.pack()
 
     root.mainloop()
-
-

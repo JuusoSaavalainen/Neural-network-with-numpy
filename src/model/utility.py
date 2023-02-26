@@ -1,6 +1,7 @@
 import numpy as np
-import matplotlib as plt
+import matplotlib.pyplot as plt
 import pickle
+
 
 class NeuralNetwork:
 
@@ -12,11 +13,11 @@ class NeuralNetwork:
         with open('src/model/model98.pickle', 'rb') as f:
             self.params = pickle.load(f)
         return self.params
-        
+
     def init__nn(self):
         """
         Initalizes parameters for the NN
-        to be precise it randomizez and initializez all
+        to be precise it randomizez aimport matplotlib as pltnd initializez all
         the weights and biases for the beginning of the training
 
         Dicts are used to store these values since we dont
@@ -35,7 +36,6 @@ class NeuralNetwork:
                 self.layer_dims[i], 1) * np.sqrt(1/self.layer_dims[i])
         return params
 
-
     def one_hot(self, Y):
         one_hot_Y = np.zeros(10)
         one_hot_Y[Y] = 1
@@ -52,7 +52,6 @@ class NeuralNetwork:
         """
         return np.maximum(Z, 0)
 
-
     def drelU(self, Z):
         """
         drelU : Computes the derivate of RelU activation function
@@ -63,7 +62,6 @@ class NeuralNetwork:
             numpy array / scalar applied the funct
         """
         return Z > 0
-
 
     def sigmoid(self, z):
         """
@@ -76,7 +74,6 @@ class NeuralNetwork:
         """
         a = 1 / (1 + np.exp(-z))
         return a
-
 
     def dsigmoid(self, z):
         """
@@ -91,7 +88,6 @@ class NeuralNetwork:
         da = s * (1 - s)
         return da
 
-
     def softmax(self, Z):
         """
         Softmax : Computes the softmax activation function
@@ -101,7 +97,7 @@ class NeuralNetwork:
         Returns:
             numpy array / scalar applied the softmax funct
         """
-        #stabilizer
+        # stabilizer
         Z = Z - max(Z)
 
         expZ = np.exp(Z) / sum(np.exp(Z))
@@ -137,12 +133,11 @@ class NeuralNetwork:
                     f"Invalid activation function: {activation_function}. Supported functions are 'relU' and 'sigmoid'.")
 
         activations['Z' + str(n_layers)] = np.dot(self.params['W' + str(n_layers)],
-                                                activations['A' + str(n_layers - 1)]) + self.params['b' + str(n_layers)]
+                                                  activations['A' + str(n_layers - 1)]) + self.params['b' + str(n_layers)]
         activations['A' + str(n_layers)
                     ] = self.softmax(activations['Z' + str(n_layers)])
 
         return activations
-
 
     def backprop(self, activations, parameters, labels, sizeb, activation_function='relU'):
         """
@@ -165,12 +160,12 @@ class NeuralNetwork:
 
         # For the last layer (no actvation func derivate needed)
         derivatives['dZ' + str(num_layers)] = activations['A' +
-                                                        str(num_layers)] - one_hot_labels
-        
+                                                          str(num_layers)] - one_hot_labels
+
         gradients['dW' + str(num_layers)] = 1 / trainingsize * np.dot(
             derivatives['dZ' + str(num_layers)], activations['A' + str(num_layers - 1)].T)
         gradients['db' + str(num_layers)
-                ] = np.sum(derivatives['dZ' + str(num_layers)])
+                  ] = np.sum(derivatives['dZ' + str(num_layers)])
 
         # For layers (L-1) to 1 (action func derivate needed)
         for layer in reversed(range(1, num_layers)):
@@ -204,9 +199,8 @@ class NeuralNetwork:
         params_updated -- a dictionary containing the updated parameters (weights and biases) of the neural network
         """
         self.params = {key: self.params[key] - alpha *
-                        grads[f'd{key}'] for key in self.params.keys()}
+                       grads[f'd{key}'] for key in self.params.keys()}
         return self.params
-
 
     def compute_accuracy(self, predictions, targets):
         """
@@ -222,7 +216,6 @@ class NeuralNetwork:
         accuracy = np.mean(np.round(predictions) == targets)
         return accuracy
 
-
     def compute_loss(self, predictions, targets):
         """
         Computes the mean squared error between the predictions and targets.
@@ -237,8 +230,7 @@ class NeuralNetwork:
         loss = np.mean((predictions - targets) ** 2)
         return loss
 
-
-    def gradient_descent_batch(self, X, Y , max_iter, alpha, batchsize, actifunc):
+    def gradient_descent_batch(self, X, Y, max_iter, alpha, batchsize, actifunc):
         """
         Optimizes the neural network parameters using gradient descent optimization algorithm.
         This is the training loop of the nn , this is not the smartest way since it optimizez after every sample.
@@ -257,22 +249,21 @@ class NeuralNetwork:
         Returns:
         params - optimized parameters for the neural network
         """
-
         L = len(self.params) // 2
         accuracies, losses = [], []
 
-
         # iterate through the optimization in batches
         for iteration in range(1, max_iter + 1):
-            
-            data = list(zip(X,Y))
+
+            data = list(zip(X, Y))
             np.random.shuffle(data)
 
-            #baching
-            mini_batches = [data[j:j + batchsize] for j in range(0, 48000, batchsize)]
+            # baching
+            mini_batches = [data[j:j + batchsize]
+                            for j in range(0, 48000, batchsize)]
 
             for batch in mini_batches:
-                x,y = batch[0][0],batch[0][1]
+                x, y = batch[0][0], batch[0][1]
 
                 # forward propagation to compute activations
                 activations = self.forwardprop(x, actifunc)
@@ -281,10 +272,12 @@ class NeuralNetwork:
                 predictions = activations[f'A{L}']
 
                 # backpropagation to compute gradients
-                gradients = self.backprop(activations, self.params, y, batchsize,  actifunc)
+                gradients = self.backprop(
+                    activations, self.params, y, batchsize,  actifunc)
 
-                # update parameters using gradients 
-                self.params = self.update_parameters(self.params, gradients, alpha)
+                # update parameters using gradients
+                self.params = self.update_parameters(
+                    self.params, gradients, alpha)
 
                 # append accuracy and loss to their respective lists
                 accuracy = self.compute_accuracy(predictions, self.one_hot(y))
@@ -293,11 +286,11 @@ class NeuralNetwork:
                 losses.append(loss)
 
             # print accuracy and loss after each epoch
-            print(f'Epoch -> {iteration:3} / {max_iter:1} | Training accuracy:{np.mean(accuracies):20} | Loss: {np.mean(losses):14}')
+            print(
+                f'Epoch -> {iteration:3} / {max_iter:1} | Training accuracy:{np.mean(accuracies):20} | Loss: {np.mean(losses):14}')
             # reset the lists for accuracy and loss after each epoch
             accuracies, losses = [], []
         return self.params
-
 
     def test_model(self, x, y, actf, visualize):
         # after training test with test data
@@ -314,7 +307,8 @@ class NeuralNetwork:
             if visualize == True and i < 50:
                 # Plot the input image
                 plt.imshow(x.reshape(28, 28), cmap='gray')
-                plt.title(f'Prediction: {np.argmax(predictions)}, Real label: {y}')
+                plt.title(
+                    f'Prediction: {np.argmax(predictions)}, Real label: {y}')
 
                 plt.show()
                 # Display the whole vector of predictions
@@ -323,11 +317,13 @@ class NeuralNetwork:
             if np.argmax(predictions) == y:
                 test_acc += 1
                 correct_pics.append(x)
-            rounds +=1
-            i +=1
+            rounds += 1
+            i += 1
         if (test_acc/rounds)*100 <= 10:
-            print(f'Your model got {(test_acc/rounds)*100}% right with the Test_data not used in training.')
+            print(
+                f'Your model got {(test_acc/rounds)*100}% right with the Test_data not used in training.')
             print('I can guess better than that model')
             return
 
-        print(f'Your model got {(test_acc/rounds)*100}% right with the Test_data not used in training.')
+        print(
+            f'Your model got {(test_acc/rounds)*100}% right with the Test_data not used in training.')

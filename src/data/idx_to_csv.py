@@ -25,8 +25,7 @@ def convert_to_csv(image, label, out, n):
 
 
 convert_to_csv("src/data/train-images.idx3-ubyte", "src/data/train-labels.idx1-ubyte",
-        "src/data/mnist_train.csv", 60000)
+               "src/data/mnist_train.csv", 60000)
 
 convert_to_csv("src/data/t10k-images.idx3-ubyte", "src/data/t10k-labels.idx1-ubyte",
-        "src/data/mnist_test.csv", 10000)
-
+               "src/data/mnist_test.csv", 10000)
