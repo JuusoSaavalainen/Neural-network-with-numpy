@@ -1,10 +1,10 @@
 import tkinter as tk
 import tkinter.messagebox
 import cv2
-import utility as utils
-import dataformat as dataformat
 import numpy as np
 import pickle
+import utility as utils
+import dataformat as dataformat
 
 
 def save_image():
