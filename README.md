@@ -64,3 +64,4 @@ $ poetry run invoke train
 * [Week 3](https://github.com/JuusoSaavalainen/TiraLAB-Neural-network-with-numpy/blob/main/documentation/weeklyrecap3.md)
 * [Week 4](https://github.com/JuusoSaavalainen/Neural-network-with-numpy/blob/main/documentation/weeklyrecap4.md)
 * [Week 5](https://github.com/JuusoSaavalainen/Neural-network-with-numpy/blob/main/documentation/weeklyrecap5.md)
+* [Week 6](https://github.com/JuusoSaavalainen/Neural-network-with-numpy/blob/main/documentation/weeklyrecap6.md)
