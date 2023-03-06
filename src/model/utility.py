@@ -17,7 +17,7 @@ class NeuralNetwork:
     def init__nn(self):
         """
         Initalizes parameters for the NN
-        to be precise it randomizez aimport matplotlib as pltnd initializez all
+        to be precise it randomizez and initializez all
         the weights and biases for the beginning of the training
 
         Dicts are used to store these values since we dont
