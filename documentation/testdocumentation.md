@@ -42,11 +42,11 @@ This test file is for testing the activation functions of the neural network.
 
 ## TestFprop
 
-This test file is for testing the forward prop in the neuralnetwork.
+This test file is for testing the forward propagation basic functionality in the neural network.
 
 ### Methods 
 
-- setUP: sets up the test image as vector and the network with 2 hidden layers 10, 10
+- setUp: sets up the test image as vector and the network with 2 hidden layers 10, 10
 - test_forwardprop_wrong: test to ensure seeding
 - test_forwardprop_right: test the outcome of the algorithm with fixed input and layout
 
@@ -56,6 +56,22 @@ This test file is for testing the forward prop in the neuralnetwork.
 - np.random.seed(42): sets the random seed for numpy's random number generator. This ensures that the same random values will be generated each time the program is run, making the results reproducible.
 - nn: is an instance of the NeuralNetwork class with the specified layer dimensions. The weights of the network are randomly initialized using the seed.
 
+## Testnnsup
+
+This is the test file for basic supportive functions used in the model.
+Contains 3 classes of unittests described here
+
+### TestOneHot
+
+- Test functionality of OneHot encoding with floats and large inputs
+
+### TestNormalizeZeroOne
+
+- Test the normalization from 0-255 to 0-1
+
+### TestRandomizeRows
+
+- Test the randomizing of the rows before training. 
 
 ## Missing tests
 - Backwardpropagation and the training loop as whole
