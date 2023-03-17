@@ -38,8 +38,9 @@ In the comparision both have 1 hidden layer one with 10 nodes one with 100 nodes
 ![10 nodes](https://github.com/JuusoSaavalainen/Neural-network-with-numpy/blob/main/documentation/loss2010.png)
 ![100 nodes](https://github.com/JuusoSaavalainen/Neural-network-with-numpy/blob/main/documentation/loss20100.png)
 
-## Time and space complexity
-todo
+### The training time of a single epoch is heavily affect by these factors
+- Number and size of the layers. Its clear that more nodes and more layers will result in slower training loop as the steps on the back and forward propagation increases more np.dots will be calculated and the training loop slows down
 
-## Model Comparison 
-todo
+- The batch size speeds up the training as it increases. Resulting in a lower number of calculations for each epoch. 
+
+
