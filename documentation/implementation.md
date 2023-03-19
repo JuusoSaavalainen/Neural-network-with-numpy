@@ -7,8 +7,7 @@ To be able to train your custom neural network , and test the model in practice
 
 The model implementation is a Deep Neural Network (DNN) built from scratch using NumPy, with the MNIST database as the data source. The network architecture is designed to be modular, allowing for exploration of different layer configurations and hyperparameters. The current implementation that is used in GUI uses a 5-layer setup, with fully connected layers, making it a Multilayer Perceptron (MLP). 
 
-In the model many things are used but the main ones are backpropagation , forwardpropagation, onehot encoding, softmax, relU (also derived), sigmoid (also derived), and gradient descent with batching. Most of the data is stored in dicst containing numpy arrays. Model with stochastic gradient descent is also implemented with batch size of 0. Training with the batch model is way more efficient and i dont think there is usage for now atleast. It is still keepd for the comparision possibilities.
-
+In the model many things are used but the main ones are backpropagation , forwardpropagation, onehot encoding, softmax, relU (also derived), sigmoid (also derived), and gradient descent with batching. Most of the data is stored in dicts containing numpy arrays.
 
 ## GUI
 
@@ -17,7 +16,7 @@ For those who do not wish to explore the training process or the modularity of t
 ## Training (CLI)
 *only mvp avaible work in progress*
 
-If desired, the model can be trained with custom parameters. The process involves cloning the repository and using Poetry to install dependencies and run the training CLI. The `idx_to_csv.py` file must be runned with the `dowloadmnist` with Poetry. Once the CSV files are obtaine the training CLI can then be run with `poetry run invoke train`.  
+If desired, the model can be trained with custom parameters. The process involves cloning the repository and using Poetry to install dependencies and run the training CLI. The `idx_to_csv.py` file must be runned with the `dowloadmnist` with Poetry. Once the CSV files are obtained the training CLI can then be run with `poetry run invoke train`.  
 
 In the training you can choose custom values to these parameter:
 - *Number of hidden layers* [positive number]
