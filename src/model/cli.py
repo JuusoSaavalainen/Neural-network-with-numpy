@@ -3,6 +3,7 @@ import dataformat as dataformat
 from utility import NeuralNetwork
 import matplotlib.pyplot as plt
 
+
 class NNCLI:
     def __init__(self):
         self.data = dataformat.format()

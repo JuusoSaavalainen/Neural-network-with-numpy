@@ -27,12 +27,21 @@ def randomize_rows(data):
 
 
 def format():
-    # ::STILL IN DEVELOP MODE::
+    """
+    Format is a function to
+    load and format the mnist data in 
+    fixed way to be used in the training
 
-    # load the data as so path to train data is defined here that is why its here.
-    # loading of the test data can be doned similarly
+    Returns:
+        Train(48000), Test(10000), Validation(12000) data with X and Y 
+        where Y is labels and X the pictures in fixed format
 
-    # These
+    This could be turned in multiple functions and free the sizes
+    in this project there is no reason to do so
+
+    Validation data is not used in normal training so that could be separated
+    """
+
     data = pd.read_csv(
         'src/data/mnist_train.csv', header=None)
 

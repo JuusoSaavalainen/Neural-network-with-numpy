@@ -8,6 +8,13 @@ import dataformat as dataformat
 
 
 def save_image():
+    """_summary_
+    save image is used for saving the picture from tkinter canvas
+    this function loads ands prepares the data in correct format to be
+    inputted for the nn and forwardpropped
+
+    cv2 is used for blurring effect on the images to mimic the original pictures
+    """
     x, y = (28, 28)
     image = np.zeros((x, y), dtype=np.uint8)
 
