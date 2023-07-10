@@ -1,4 +1,4 @@
-# Recognition of handwritten numbers using machine learning methods
+# Recognition of handwritten numbers
 
 ![GHA workflow badge](https://github.com/JuusoSaavalainen/TiraLAB-Neural-network-with-numpy/workflows/CI/badge.svg)
 [![codecov](https://codecov.io/gh/JuusoSaavalainen/Neural-network-with-numpy/branch/main/graph/badge.svg?token=YO0Y9270ZS)](https://codecov.io/gh/JuusoSaavalainen/Neural-network-with-numpy)
