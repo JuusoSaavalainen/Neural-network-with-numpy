@@ -60,7 +60,7 @@ $ poetry run invoke train
 * [Implementation document](https://github.com/JuusoSaavalainen/Neural-network-with-numpy/blob/main/documentation/implementation.md)
 
 ## Future / Todos
-* Refactor more towards OOP
+* Refactor more towards OOP to add more flexibility
 * Add more datasets
 * Add CNN , RNN implementation
 * Evaluate docs such as time and space complexity
