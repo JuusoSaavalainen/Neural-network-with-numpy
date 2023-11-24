@@ -56,14 +56,15 @@ $ poetry run invoke train
 
 ## Docs
 * [Specification document](https://github.com/JuusoSaavalainen/TiraLAB/blob/main/documentation/specification.md)
+* [Test document](https://github.com/JuusoSaavalainen/TiraLAB-Neural-network-with-numpy/blob/main/documentation/testdocumentation.md)
+* [Implementation document](https://github.com/JuusoSaavalainen/Neural-network-with-numpy/blob/main/documentation/implementation.md)
 
-## Future
+## Future / Todos
 * Refactor more towards OOP
 * Add more datasets
 * Add CNN , RNN implementation
 * Evaluate docs such as time and space complexity
 * Refactor loss function / add cross-entropy
-* [Test document](https://github.com/JuusoSaavalainen/TiraLAB-Neural-network-with-numpy/blob/main/documentation/testdocumentation.md)
-* [Implementation document](https://github.com/JuusoSaavalainen/Neural-network-with-numpy/blob/main/documentation/implementation.md)
+* Add more precision to to gui / deploy the gui as website
 
 
