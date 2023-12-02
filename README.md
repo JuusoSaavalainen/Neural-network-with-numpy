@@ -66,5 +66,6 @@ $ poetry run invoke train
 * Evaluate docs such as time and space complexity
 * Refactor loss function / add cross-entropy
 * Add more precision to to gui / deploy the gui as website
+* Add math docs to backprop
 
 
