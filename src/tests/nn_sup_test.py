@@ -9,18 +9,18 @@ class TestOneHot(unittest.TestCase):
         self.nn = NeuralNetwork([784, 10, 10])
 
     def test_one_hot(self):
-        Y = 5
+        Y = np.array([5])
         expected = np.array([[0], [0], [0], [0], [0], [1], [0], [0], [0], [0]])
         result = self.nn.one_hot(Y)
         self.assertTrue(np.allclose(result, expected))
 
     def test_one_hot_with_large_input(self):
-        Y = 20
+        Y = np.array([20])
         with self.assertRaises(IndexError):
             self.nn.one_hot(Y)
 
     def test_one_hot_with_float_input(self):
-        Y = 5.5
+        Y = np.array([5.5])
         with self.assertRaises(IndexError):
             self.nn.one_hot(Y)
 
