@@ -24,8 +24,8 @@ class NeuralNetwork:
         want to hardcode this part to keep it layer layout modular.
 
         W denotes weight matrix between nodes
-        b denotes bias vecktor
-        Returs dict with W1, b1, W2, b2 ..... Wn, bn 
+        b denotes bias vector
+        Returns dict with W1, b1, W2, b2 ..... Wn, bn 
         where n denotes the dimension of given model
         """
         params = {}
@@ -37,9 +37,9 @@ class NeuralNetwork:
         return params
 
     def one_hot(self, Y):
-        one_hot_Y = np.zeros(10)
-        one_hot_Y[Y] = 1
-        return one_hot_Y.reshape(10, 1)
+        one_hot_Y = np.zeros((Y.size, 10))
+        one_hot_Y[np.arange(Y.size), Y] = 1
+        return one_hot_Y.T
 
     def relU(self, Z):
         """
@@ -98,9 +98,9 @@ class NeuralNetwork:
             numpy array / scalar applied the softmax funct
         """
         # stabilizer
-        Z = Z - max(Z)
+        Z = Z - np.max(Z, axis=0, keepdims=True)
 
-        expZ = np.exp(Z) / sum(np.exp(Z))
+        expZ = np.exp(Z) / np.sum(np.exp(Z), axis=0, keepdims=True)
         return expZ
 
     def forwardprop(self, X, activation_function='relU'):
@@ -218,23 +218,23 @@ class NeuralNetwork:
 
     def compute_loss(self, predictions, targets):
         """
-        Computes the mean squared error between the predictions and targets.
+        Computes the multi-class cross-entropy loss between the predictions and targets.
 
         Parameters:
-        predictions - predicted values from the model
-        targets - actual target values
+        predictions - predicted probabilities from the model for each class
+        targets - actual target values (one-hot encoded)
 
         Returns:
         loss - the computed loss
         """
-        loss = np.mean((predictions - targets) ** 2)
+        epsilon = 1e-12
+        predictions = np.clip(predictions, epsilon, 1. - epsilon)
+        loss = -np.mean(targets * np.log(predictions))
         return loss
 
     def gradient_descent_batch(self, X, Y, max_iter, alpha, batchsize, actifunc):
         """
         Optimizes the neural network parameters using gradient descent optimization algorithm.
-        This is the training loop of the nn , this is not the smartest way since it optimizez after every sample.
-        this could be changet later to stocastic or batch type implemention of training. 
 
         Parameters:
         X - input data
@@ -242,9 +242,8 @@ class NeuralNetwork:
         layers_dims - list of layer dimensions, including input and output layer
         max_iter - maximum number of iterations for optimization
         alpha - learning rate
+        batchsize - size of the mini-batches
         actifuc - chosen activation function name 
-
-        x_train, y_train - temporary params here
 
         Returns:
         params - optimized parameters for the neural network
@@ -263,7 +262,9 @@ class NeuralNetwork:
                             for j in range(0, 48000, batchsize)]
 
             for batch in mini_batches:
-                x, y = batch[0][0], batch[0][1]
+                x, y = zip(*batch)
+                x = np.array(x).T
+                y = np.array(y)
 
                 # forward propagation to compute activations
                 activations = self.forwardprop(x, actifunc)
@@ -301,9 +302,9 @@ class NeuralNetwork:
         num_layers = len(self.params) // 2
 
         for x, y in zip(x, y):
+            x = x.reshape((-1, 1))
             activations = self.forwardprop(x, actf)
             predictions = activations[f'A{num_layers}']
-
             if visualize == True and i < 50:
                 # Plot the input image
                 plt.imshow(x.reshape(28, 28), cmap='gray')
