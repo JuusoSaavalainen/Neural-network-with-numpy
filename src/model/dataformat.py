@@ -67,7 +67,7 @@ def format():
     Y_training = training_data[:, 0]  # labels
 
     # Reshape the array to 2-dimensional
-    X_training = [np.reshape(i, (784, 1)) for i in X_training]
+    X_training = [np.reshape(i, (784,)) for i in X_training]
     X_training = np.array(X_training)
 
     # validation set
@@ -76,7 +76,7 @@ def format():
     Y_validating = training_data[:, 0]  # labels
 
     # Reshape the array to 2-dimensional
-    X_validating = [np.reshape(i, (784, 1)) for i in X_validating]
+    X_validating = [np.reshape(i, (784,)) for i in X_validating]
     X_validating = np.array(X_validating)
 
     # testing data
@@ -85,7 +85,7 @@ def format():
     Y_test = t_data[:, 0]  # labels
 
     # Reshape the array to 2-dimensional
-    X_test = [np.reshape(i, (784, 1)) for i in X_test]
+    X_test = [np.reshape(i, (784,)) for i in X_test]
     X_test = np.array(X_test)
 
     # Change RGB Intreval to 0-1 from 0-255 for both sets
