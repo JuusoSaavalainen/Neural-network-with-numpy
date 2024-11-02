@@ -1,4 +1,4 @@
-# Recognition of handwritten numbers
+# Digit recognition powered by NN
 
 ![GHA workflow badge](https://github.com/JuusoSaavalainen/TiraLAB-Neural-network-with-numpy/workflows/CI/badge.svg)
 [![codecov](https://codecov.io/gh/JuusoSaavalainen/Neural-network-with-numpy/branch/main/graph/badge.svg?token=YO0Y9270ZS)](https://codecov.io/gh/JuusoSaavalainen/Neural-network-with-numpy)
@@ -19,13 +19,13 @@ There is a simple Tkinter GUI implemented where you can draw your own digits. Th
 
 #### Current model used in GUI: *test_data accuracy = 98.16%*
 
-![](https://github.com/JuusoSaavalainen/Neural-network-with-numpy/blob/main/documentation/gui.gif)![](https://github.com/JuusoSaavalainen/Neural-network-with-numpy/blob/main/documentation/gui%20info.png)
+![](https://github.com/JuusoSaavalainen/Neural-network-with-numpy/blob/main/documentation/gui.gif)
 
 ## Training simple CLI
 
 If you want you can train the model with your own parameters. Follow the instructions, please. 
 
-In the training you can choose custom values for these parameter:
+In the training you can choose custom values for these parameters:
 - *Number of hidden layers* [positive number] ~Exmpl = 3
 - *Size of those layers* [postive number] ~Exmpl = 256, 128 ,64
 - *Learning rate* [positive number] ~Exmpl = 0.03
@@ -62,10 +62,7 @@ $ poetry run invoke train
 ## Future / Todos
 * Refactor more towards OOP to add more flexibility
 * Add more datasets
-* Add CNN , RNN implementation
-* Evaluate docs such as time and space complexity
-* Refactor loss function / add cross-entropy
-* Add more precision to to gui / deploy the gui as website
-* Add math docs to backprop
+* Add CNN, ViT
+
 
 
